@@ -1,0 +1,833 @@
+/* =========================================================
+   BODYTECH — DEJAR RESEÑA
+========================================================= */
+
+:root {
+    --review-bg: #020617;
+    --review-card: rgba(15, 23, 42, 0.78);
+    --review-card-soft: rgba(30, 41, 59, 0.55);
+
+    --review-border: rgba(255, 255, 255, 0.09);
+    --review-border-hover: rgba(96, 165, 250, 0.35);
+
+    --review-blue: #2563eb;
+    --review-blue-light: #3b82f6;
+    --review-blue-soft: rgba(37, 99, 235, 0.16);
+
+    --review-yellow: #f59e0b;
+    --review-yellow-soft: rgba(245, 158, 11, 0.12);
+
+    --review-text: #f8fafc;
+    --review-text-soft: #cbd5e1;
+    --review-muted: #94a3b8;
+
+    --review-radius: 24px;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.resena-page {
+    min-height: 100vh;
+    padding: 70px 24px 90px;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(37, 99, 235, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(59, 130, 246, 0.10),
+            transparent 30%
+        ),
+        var(--review-bg);
+
+    color: var(--review-text);
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.resena-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.resena-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 32px;
+
+    color: var(--review-text-soft);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.resena-back span {
+    font-size: 19px;
+    transition: transform 0.25s ease;
+}
+
+.resena-back:hover {
+    color: #ffffff;
+}
+
+.resena-back:hover span {
+    transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.resena-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    margin-bottom: 30px;
+}
+
+.resena-header-icon {
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 99, 235, 0.95),
+            rgba(59, 130, 246, 0.70)
+        );
+
+    border: 1px solid rgba(147, 197, 253, 0.20);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    font-size: 30px;
+}
+
+.resena-kicker {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #60a5fa;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.resena-header h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.resena-header p {
+    margin: 9px 0 0;
+
+    color: var(--review-muted);
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+========================================================= */
+
+.resena-card {
+    position: relative;
+
+    padding: 34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 42, 0.88),
+            rgba(15, 23, 42, 0.68)
+        );
+
+    border: 1px solid var(--review-border);
+    border-radius: var(--review-radius);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    overflow: hidden;
+}
+
+.resena-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #2563eb,
+            #60a5fa,
+            transparent
+        );
+
+    opacity: 0.85;
+}
+
+
+/* =========================================================
+   PRODUCTO
+========================================================= */
+
+.producto-review {
+    padding: 21px 23px;
+    margin-bottom: 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.13),
+            rgba(15, 23, 42, 0.30)
+        );
+
+    border: 1px solid rgba(96, 165, 250, 0.13);
+    border-radius: 17px;
+}
+
+.producto-review-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--review-muted);
+
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+}
+
+.producto-review h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.resena-form {
+    width: 100%;
+}
+
+.form-section {
+    padding: 27px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.form-section:first-of-type {
+    padding-top: 0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   TÍTULOS DE SECCIÓN
+========================================================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: var(--review-blue-soft);
+    border: 1px solid rgba(96, 165, 250, 0.15);
+
+    color: #60a5fa;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.section-title strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #f8fafc;
+
+    font-size: 16px;
+}
+
+.section-title span:not(.section-number) {
+    color: var(--review-muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ESTRELLAS
+========================================================= */
+
+.estrellas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    width: fit-content;
+
+    gap: 7px;
+
+    padding: 15px 18px;
+
+    background: rgba(2, 6, 23, 0.42);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+}
+
+.estrellas input {
+    display: none;
+}
+
+.estrellas label {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 40px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.estrellas label:hover {
+    transform: scale(1.12);
+}
+
+.estrellas label:hover,
+.estrellas label:hover ~ label {
+    color: var(--review-yellow);
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(245, 158, 11, 0.30)
+        );
+}
+
+.estrellas input:checked ~ label {
+    color: var(--review-yellow);
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(245, 158, 11, 0.25)
+        );
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.field-group {
+    width: 100%;
+}
+
+.field-group label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--review-text-soft);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.resena-form textarea {
+    display: block;
+
+    width: 100%;
+    min-height: 150px;
+
+    box-sizing: border-box;
+
+    padding: 16px 17px;
+
+    resize: vertical;
+
+    background: rgba(2, 6, 23, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+
+    outline: none;
+
+    color: #f8fafc;
+
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.resena-form textarea::placeholder {
+    color: #64748b;
+}
+
+.resena-form textarea:hover {
+    background: rgba(15, 23, 42, 0.70);
+
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.resena-form textarea:focus {
+    background: rgba(15, 23, 42, 0.78);
+
+    border-color: rgba(96, 165, 250, 0.55);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10),
+        0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   SUBIDA DE MULTIMEDIA
+========================================================= */
+
+.media-input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.media-upload {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    width: 100%;
+
+    padding: 19px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 41, 59, 0.65),
+            rgba(15, 23, 42, 0.50)
+        );
+
+    border: 1px dashed rgba(96, 165, 250, 0.25);
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.media-upload:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.13),
+            rgba(15, 23, 42, 0.60)
+        );
+
+    border-color: rgba(96, 165, 250, 0.55);
+
+    transform: translateY(-2px);
+}
+
+.media-upload-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--review-blue-soft);
+
+    border: 1px solid rgba(96, 165, 250, 0.14);
+
+    font-size: 22px;
+}
+
+.media-upload-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.media-upload-content strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #f8fafc;
+
+    font-size: 14px;
+}
+
+.media-upload-content span {
+    display: block;
+
+    color: var(--review-text-soft);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.media-upload-content small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--review-muted);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.media-upload-arrow {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(37, 99, 235, 0.13);
+
+    color: #60a5fa;
+
+    font-size: 22px;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   BOTÓN PUBLICAR
+========================================================= */
+
+.resena-submit {
+    padding-top: 28px;
+}
+
+.btn-publicar-resena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 16px 24px;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #d97706
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(245, 158, 11, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.btn-publicar-resena span {
+    font-size: 17px;
+}
+
+.btn-publicar-resena:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 16px 36px rgba(245, 158, 11, 0.25);
+}
+
+.btn-publicar-resena:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   NOTA INFERIOR
+========================================================= */
+
+.resena-footer-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 18px;
+    padding: 0 6px;
+}
+
+.resena-footer-note span {
+    margin-top: 2px;
+
+    font-size: 14px;
+}
+
+.resena-footer-note p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .resena-page {
+        padding: 45px 16px 70px;
+    }
+
+    .resena-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .resena-header-icon {
+        width: 56px;
+        height: 56px;
+
+        border-radius: 16px;
+
+        font-size: 25px;
+    }
+
+    .resena-header h1 {
+        font-size: 30px;
+    }
+
+    .resena-header p {
+        font-size: 13px;
+    }
+
+    .resena-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .producto-review {
+        padding: 18px;
+    }
+
+    .producto-review h2 {
+        font-size: 17px;
+    }
+
+    .estrellas {
+        width: 100%;
+        box-sizing: border-box;
+
+        justify-content: center;
+    }
+
+    .estrellas label {
+        font-size: 35px;
+    }
+
+    .media-upload {
+        align-items: flex-start;
+    }
+
+    .media-upload-arrow {
+        display: none;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .resena-page {
+        padding: 35px 12px 55px;
+    }
+
+    .resena-header-icon {
+        display: none;
+    }
+
+    .resena-header {
+        margin-bottom: 24px;
+    }
+
+    .resena-header h1 {
+        font-size: 27px;
+    }
+
+    .resena-card {
+        padding: 21px 16px;
+    }
+
+    .section-title {
+        gap: 11px;
+    }
+
+    .section-number {
+        width: 34px;
+        height: 34px;
+    }
+
+    .estrellas {
+        gap: 3px;
+        padding: 13px 8px;
+    }
+
+    .estrellas label {
+        font-size: 32px;
+    }
+
+    .media-upload {
+        padding: 15px;
+    }
+
+    .media-upload-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .media-upload-content span {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.btn-publicar-resena:focus-visible,
+.resena-back:focus-visible,
+.media-upload:focus-within {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}

@@ -1,0 +1,414 @@
+/* =========================================================
+CENTRO DE REPORTES ADMINISTRATIVOS
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #0f172a;
+color: #172033;
+}
+
+.reports-page {
+width: min(1180px, calc(100% - 40px));
+margin: 0 auto;
+padding: 40px 0 30px;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.reports-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30px;
+margin-bottom: 30px;
+}
+
+.header-title {
+display: flex;
+align-items: center;
+gap: 18px;
+}
+
+.header-icon {
+width: 62px;
+height: 62px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 18px;
+background: #166534;
+color: #ffffff;
+font-size: 25px;
+box-shadow: 0 10px 25px rgba(22, 101, 52, 0.30);
+}
+
+.header-kicker {
+display: block;
+margin-bottom: 5px;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 1.5px;
+color: #94a3b8;
+}
+
+.reports-header h1 {
+margin: 0;
+font-size: 32px;
+font-weight: 800;
+color: #f8fafc;
+}
+
+.reports-header p {
+margin: 7px 0 0;
+color: #94a3b8;
+font-size: 15px;
+}
+
+.back-button {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+padding: 12px 18px;
+border-radius: 12px;
+background: #ffffff;
+color: #334155;
+text-decoration: none;
+font-size: 14px;
+font-weight: 700;
+border: 1px solid #e2e8f0;
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+border-color 0.2s ease;
+}
+
+.back-button:hover {
+transform: translateY(-2px);
+border-color: #cbd5e1;
+box-shadow: 0 8px 20px rgba(15, 23, 42, 0.20);
+}
+
+/* =========================================================
+TARJETAS
+========================================================= */
+
+.report-card {
+background: #ffffff;
+border: 1px solid #e6ebf2;
+border-radius: 20px;
+padding: 30px;
+margin-bottom: 24px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.section-heading {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 28px;
+}
+
+.section-icon {
+width: 46px;
+height: 46px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 13px;
+background: #eef2ff;
+color: #4f46e5;
+font-size: 19px;
+}
+
+.section-heading h2 {
+margin: 0;
+font-size: 20px;
+font-weight: 800;
+color: #172033;
+}
+
+.section-heading p {
+margin: 5px 0 0;
+color: #64748b;
+font-size: 14px;
+}
+
+/* =========================================================
+FORMULARIO DE FECHAS
+========================================================= */
+
+.date-form {
+display: grid;
+grid-template-columns:
+minmax(0, 1fr)
+minmax(0, 1fr)
+auto;
+align-items: end;
+gap: 18px;
+}
+
+.date-field {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.date-field label {
+font-size: 13px;
+font-weight: 700;
+color: #334155;
+}
+
+.date-field input {
+width: 100%;
+height: 48px;
+padding: 0 14px;
+border: 1px solid #dbe2ea;
+border-radius: 11px;
+background: #f8fafc;
+color: #172033;
+font-size: 14px;
+outline: none;
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease;
+}
+
+.date-field input:focus {
+background: #ffffff;
+border-color: #6366f1;
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.10);
+}
+
+.form-actions {
+display: flex;
+align-items: flex-end;
+}
+
+.generate-button {
+height: 48px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+padding: 0 22px;
+border: none;
+border-radius: 11px;
+background: #166534;
+color: #ffffff;
+font-size: 14px;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 8px 18px rgba(22, 101, 52, 0.25);
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease;
+}
+
+.generate-button:hover {
+transform: translateY(-2px);
+background: #15803d;
+box-shadow: 0 12px 24px rgba(22, 101, 52, 0.32);
+}
+
+.generate-button i {
+font-size: 17px;
+}
+
+/* =========================================================
+OPCIONES DEL REPORTE
+========================================================= */
+
+.report-options {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+}
+
+.report-option {
+display: flex;
+align-items: center;
+gap: 15px;
+padding: 18px;
+border: 1px solid #e8edf3;
+border-radius: 15px;
+background: #fafbfd;
+}
+
+.option-icon {
+width: 44px;
+height: 44px;
+flex: 0 0 44px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 12px;
+font-size: 17px;
+}
+
+.option-icon.blue {
+background: #e8f1ff;
+color: #2563eb;
+}
+
+.option-icon.green {
+background: #eafaf1;
+color: #16a34a;
+}
+
+.option-icon.purple {
+background: #f2edff;
+color: #7c3aed;
+}
+
+.option-icon.orange {
+background: #fff4e5;
+color: #ea580c;
+}
+
+.report-option strong {
+display: block;
+margin-bottom: 4px;
+font-size: 15px;
+color: #172033;
+}
+
+.report-option span {
+display: block;
+color: #64748b;
+font-size: 13px;
+line-height: 1.5;
+}
+
+/* =========================================================
+AVISO
+========================================================= */
+
+.report-notice {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+padding: 18px 20px;
+margin-bottom: 28px;
+border: 1px solid #dbeafe;
+border-radius: 15px;
+background: #eff6ff;
+color: #1e3a8a;
+}
+
+.report-notice > i {
+margin-top: 2px;
+font-size: 18px;
+}
+
+.report-notice strong {
+display: block;
+margin-bottom: 4px;
+font-size: 14px;
+}
+
+.report-notice p {
+margin: 0;
+color: #475569;
+font-size: 13px;
+line-height: 1.5;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+.reports-footer {
+padding-top: 10px;
+text-align: center;
+}
+
+.reports-footer a {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+color: #94a3b8;
+text-decoration: none;
+font-size: 13px;
+font-weight: 700;
+transition: color 0.2s ease;
+}
+
+.reports-footer a:hover {
+color: #f8fafc;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+
+.reports-header {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.back-button {
+    width: 100%;
+    justify-content: center;
+}
+
+.date-form {
+    grid-template-columns: 1fr;
+}
+
+.form-actions {
+    width: 100%;
+}
+
+.generate-button {
+    width: 100%;
+}
+
+
+}
+
+@media (max-width: 650px) {
+
+
+.reports-page {
+    width: min(100% - 24px, 1180px);
+    padding-top: 24px;
+}
+
+.reports-header h1 {
+    font-size: 25px;
+}
+
+.header-title {
+    align-items: flex-start;
+}
+
+.header-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+}
+
+.report-card {
+    padding: 22px;
+}
+
+.report-options {
+    grid-template-columns: 1fr;
+}
+
+
+}

@@ -1,0 +1,890 @@
+/* ==========================================================
+   BODYTECH — GESTIÓN DE PRODUCTOS
+   Diseño administrativo oscuro / azul
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+    --admin-bg: #020b18;
+    --admin-bg-secondary: #061426;
+
+    --admin-card: #08182c;
+    --admin-card-hover: #0c2039;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+    --admin-blue-dark: #0d4fae;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-success: #27c47d;
+    --admin-danger: #ef5b68;
+    --admin-warning: #f59e0b;
+
+    --admin-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   DOCUMENTO
+========================================================== */
+
+html {
+    min-height: 100%;
+
+    background:
+        var(--admin-bg);
+}
+
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+}
+
+
+/* ==========================================================
+   PANEL
+========================================================== */
+
+.panel {
+    width: 100%;
+    max-width: 1350px;
+
+    margin: 0 auto;
+
+    padding: 42px 30px 70px;
+
+    animation:
+        adminPageEnter 0.5s ease both;
+}
+
+
+/* ==========================================================
+   ENCABEZADO
+========================================================== */
+
+.header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding-bottom: 24px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+/* ==========================================================
+   TÍTULO
+========================================================== */
+
+.header-title h1 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 0;
+
+    color: var(--admin-text);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+.header-title h1 i {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border:
+        1px solid rgba(63, 140, 255, 0.22);
+
+    border-radius: 10px;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.10);
+
+    font-size: 18px;
+}
+
+
+.header-title p {
+    margin: 9px 0 0 56px;
+
+    color: var(--admin-muted);
+
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   VOLVER
+========================================================== */
+
+.back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 9px;
+
+    color: var(--admin-text-secondary);
+
+    background:
+        rgba(7, 20, 38, 0.75);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.back-button:hover {
+    color: #ffffff;
+
+    background:
+        var(--admin-card-hover);
+
+    border-color:
+        var(--admin-border-hover);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==========================================================
+   BARRA DE ACCIONES
+========================================================== */
+
+.toolbar {
+    display: flex;
+
+    align-items: center;
+
+    margin: 25px 0 20px;
+}
+
+
+/* ==========================================================
+   CREAR PRODUCTO
+========================================================== */
+
+.create-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 11px 18px;
+
+    border:
+        1px solid rgba(63, 140, 255, 0.35);
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background:
+        var(--admin-blue);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(23, 105, 224, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.create-button:hover {
+    background:
+        var(--admin-blue-light);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(23, 105, 224, 0.28);
+}
+
+
+/* ==========================================================
+   TABLA — CONTENEDOR
+========================================================== */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 14px;
+
+    background:
+        var(--admin-card);
+
+    box-shadow:
+        var(--admin-shadow);
+}
+
+
+/* ==========================================================
+   TABLA
+========================================================== */
+
+table {
+    width: 100%;
+
+    min-width: 1050px;
+
+    border-collapse: collapse;
+}
+
+
+/* ==========================================================
+   ENCABEZADO DE TABLA
+========================================================== */
+
+thead {
+    background:
+        rgba(23, 105, 224, 0.08);
+}
+
+
+th {
+    padding: 15px 17px;
+
+    border-bottom:
+        1px solid var(--admin-border);
+
+    color: var(--admin-text-secondary);
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   CELDAS
+========================================================== */
+
+td {
+    padding: 16px 17px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    color: var(--admin-text-secondary);
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+
+tbody tr {
+    transition:
+        background 0.2s ease;
+}
+
+
+tbody tr:hover {
+    background:
+        rgba(23, 105, 224, 0.045);
+}
+
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* ==========================================================
+   ID
+========================================================== */
+
+.product-id {
+    color: var(--admin-muted);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   NOMBRE
+========================================================== */
+
+.product-name {
+    min-width: 190px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   PRECIO
+========================================================== */
+
+.product-price {
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   CATEGORÍA
+========================================================== */
+
+.category {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border:
+        1px solid rgba(63, 140, 255, 0.16);
+
+    border-radius: 6px;
+
+    color: var(--admin-text-secondary);
+
+    background:
+        rgba(23, 105, 224, 0.07);
+
+    font-size: 12px;
+}
+
+
+/* ==========================================================
+   ESTADO
+========================================================== */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.status i {
+    font-size: 7px;
+}
+
+
+.status.active {
+    color: var(--admin-success);
+}
+
+
+.status.inactive {
+    color: var(--admin-danger);
+}
+
+
+/* ==========================================================
+   ACCIONES
+========================================================== */
+
+.actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ==========================================================
+   BOTONES DE ACCIÓN
+========================================================== */
+
+.action-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.action-button:hover {
+    transform:
+        translateY(-1px);
+}
+
+
+.action-button i {
+    font-size: 11px;
+}
+
+
+/* ==========================================================
+   EDITAR
+========================================================== */
+
+.action-button.edit {
+    color: #fbbf24;
+
+    background:
+        rgba(245, 158, 11, 0.09);
+
+    border-color:
+        rgba(245, 158, 11, 0.20);
+}
+
+
+.action-button.edit:hover {
+    color: #ffffff;
+
+    background:
+        rgba(245, 158, 11, 0.16);
+
+    border-color:
+        rgba(245, 158, 11, 0.35);
+}
+
+
+/* ==========================================================
+   MONITOREAR
+========================================================== */
+
+.action-button.monitor {
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.09);
+
+    border-color:
+        rgba(63, 140, 255, 0.20);
+}
+
+
+.action-button.monitor:hover {
+    color: #ffffff;
+
+    background:
+        rgba(23, 105, 224, 0.17);
+
+    border-color:
+        rgba(63, 140, 255, 0.35);
+}
+
+
+/* ==========================================================
+   ACTIVAR
+========================================================== */
+
+.action-button.activate {
+    color: var(--admin-success);
+
+    background:
+        rgba(39, 196, 125, 0.08);
+
+    border-color:
+        rgba(39, 196, 125, 0.20);
+}
+
+
+.action-button.activate:hover {
+    color: #ffffff;
+
+    background:
+        rgba(39, 196, 125, 0.15);
+
+    border-color:
+        rgba(39, 196, 125, 0.35);
+}
+
+
+/* ==========================================================
+   DESACTIVAR
+========================================================== */
+
+.action-button.deactivate {
+    color: var(--admin-danger);
+
+    background:
+        rgba(239, 91, 104, 0.08);
+
+    border-color:
+        rgba(239, 91, 104, 0.20);
+}
+
+
+.action-button.deactivate:hover {
+    color: #ffffff;
+
+    background:
+        rgba(239, 91, 104, 0.15);
+
+    border-color:
+        rgba(239, 91, 104, 0.35);
+}
+
+
+/* ==========================================================
+   ELIMINAR
+========================================================== */
+
+.action-button.delete {
+    color: #ff8d98;
+
+    background:
+        rgba(239, 91, 104, 0.08);
+
+    border-color:
+        rgba(239, 91, 104, 0.20);
+}
+
+
+.action-button.delete:hover {
+    color: #ffffff;
+
+    background:
+        rgba(239, 91, 104, 0.18);
+
+    border-color:
+        rgba(239, 91, 104, 0.40);
+}
+
+
+/* ==========================================================
+   ESTADO VACÍO
+========================================================== */
+
+.empty-state {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    min-height: 300px;
+
+    padding: 40px;
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 14px;
+
+    background:
+        var(--admin-card);
+
+    box-shadow:
+        var(--admin-shadow);
+
+    text-align: center;
+}
+
+
+.empty-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border:
+        1px solid rgba(63, 140, 255, 0.20);
+
+    border-radius: 14px;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.10);
+
+    font-size: 24px;
+}
+
+
+.empty-state h2 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+
+.empty-state p {
+    max-width: 430px;
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   ANIMACIÓN
+========================================================== */
+
+@keyframes adminPageEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .panel {
+        padding:
+            35px 22px 60px;
+    }
+
+
+    .header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .back-button {
+        width: auto;
+    }
+
+}
+
+
+/* ==========================================================
+   MÓVIL
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .panel {
+        padding:
+            28px 15px 50px;
+    }
+
+
+    .header-title h1 {
+        font-size: 25px;
+    }
+
+
+    .header-title h1 i {
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
+
+    .header-title p {
+        margin-left: 0;
+
+        margin-top: 10px;
+    }
+
+
+    .back-button {
+        width: 100%;
+    }
+
+
+    .toolbar {
+        margin-top: 20px;
+    }
+
+
+    .create-button {
+        width: 100%;
+    }
+
+
+    .table-container {
+        border-radius: 11px;
+    }
+
+
+    th,
+    td {
+        padding:
+            13px 14px;
+    }
+
+}
+
+
+/* ==========================================================
+   MÓVILES PEQUEÑOS
+========================================================== */
+
+@media (max-width: 400px) {
+
+    .header-title h1 {
+        font-size: 22px;
+    }
+
+
+    .action-button span {
+        display: none;
+    }
+
+
+    .action-button {
+        width: 32px;
+        height: 32px;
+
+        padding: 0;
+    }
+
+
+    .action-button i {
+        font-size: 12px;
+    }
+
+}

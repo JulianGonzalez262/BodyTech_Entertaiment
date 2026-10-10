@@ -1,0 +1,676 @@
+/* =========================================================
+   BODYTECH — ELIMINAR CUENTA
+========================================================= */
+
+:root {
+    --delete-bg: #020617;
+
+    --delete-card: rgba(15, 23, 42, 0.82);
+    --delete-card-soft: rgba(30, 41, 59, 0.55);
+
+    --delete-border: rgba(255, 255, 255, 0.09);
+    --delete-border-hover: rgba(96, 165, 250, 0.28);
+
+    --delete-blue: #2563eb;
+    --delete-blue-light: #60a5fa;
+    --delete-blue-soft: rgba(37, 99, 235, 0.14);
+
+    --delete-red: #ef4444;
+    --delete-red-dark: #dc2626;
+    --delete-red-soft: rgba(239, 68, 68, 0.11);
+
+    --delete-yellow: #f59e0b;
+    --delete-yellow-soft: rgba(245, 158, 11, 0.11);
+
+    --delete-text: #f8fafc;
+    --delete-text-soft: #cbd5e1;
+    --delete-muted: #94a3b8;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.delete-account-page {
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 24px 90px;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(37, 99, 235, 0.18),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(30, 64, 175, 0.12),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #020617 0%,
+            #071126 50%,
+            #020617 100%
+        );
+
+    color: var(--delete-text);
+}
+
+
+/* =========================================================
+   TARJETA
+========================================================= */
+
+.delete-account-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 850px;
+
+    box-sizing: border-box;
+
+    padding: 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 42, 0.90),
+            rgba(15, 23, 42, 0.70)
+        );
+
+    border: 1px solid var(--delete-border);
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    overflow: hidden;
+}
+
+.delete-account-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #2563eb,
+            #60a5fa,
+            transparent
+        );
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.delete-account-header {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 34px;
+}
+
+.delete-account-icon {
+    width: 72px;
+    height: 72px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 99, 235, 0.95),
+            rgba(59, 130, 246, 0.68)
+        );
+
+    border: 1px solid rgba(147, 197, 253, 0.18);
+
+    box-shadow:
+        0 18px 38px rgba(37, 99, 235, 0.23),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13);
+
+    font-size: 31px;
+}
+
+.delete-account-kicker {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--delete-blue-light);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+}
+
+.delete-account-header h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(29px, 4vw, 40px);
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.delete-account-header p {
+    max-width: 680px;
+
+    margin: 10px 0 0;
+
+    color: var(--delete-muted);
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   CAJA DE ADVERTENCIA
+========================================================= */
+
+.delete-warning-box {
+    margin-bottom: 24px;
+    padding: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(245, 158, 11, 0.085),
+            rgba(15, 23, 42, 0.42)
+        );
+
+    border: 1px solid rgba(245, 158, 11, 0.18);
+
+    border-radius: 19px;
+}
+
+.warning-box-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.warning-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--delete-yellow-soft);
+
+    border: 1px solid rgba(245, 158, 11, 0.18);
+
+    color: #fbbf24;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.warning-box-header h2 {
+    margin: 0 0 3px;
+
+    color: #f8fafc;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.warning-box-header p {
+    margin: 0;
+
+    color: var(--delete-muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   LISTA DE VERIFICACIONES
+========================================================= */
+
+.delete-warning-box ul {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 11px 22px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.delete-warning-box li {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: var(--delete-text-soft);
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.delete-warning-box li > span {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 1px;
+
+    border-radius: 7px;
+
+    background: rgba(37, 99, 235, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.delete-warning-box li.permanent-item {
+    color: #fca5a5;
+}
+
+.delete-warning-box li.permanent-item > span {
+    background: var(--delete-red-soft);
+
+    color: #f87171;
+}
+
+
+/* =========================================================
+   NOTA IMPORTANTE
+========================================================= */
+
+.important-note {
+    margin-bottom: 30px;
+    padding: 25px 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(239, 68, 68, 0.09),
+            rgba(127, 29, 29, 0.055)
+        );
+
+    border: 1px solid rgba(239, 68, 68, 0.18);
+
+    border-radius: 19px;
+}
+
+.important-note-title {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.important-note-title span {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--delete-red-soft);
+
+    font-size: 17px;
+}
+
+.important-note-title strong {
+    color: #fca5a5;
+
+    font-size: 16px;
+}
+
+.important-note p {
+    margin: 0 0 12px;
+
+    color: var(--delete-text-soft);
+
+    font-size: 13px;
+}
+
+.important-note ul {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin: 0;
+    padding: 0 0 0 4px;
+
+    list-style: none;
+}
+
+.important-note li {
+    position: relative;
+
+    padding-left: 20px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.important-note li::before {
+    content: "";
+
+    position: absolute;
+
+    top: 8px;
+    left: 0;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    box-shadow:
+        0 0 9px rgba(239, 68, 68, 0.38);
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.delete-account-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    padding-top: 4px;
+}
+
+.delete-account-actions a {
+    min-height: 54px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* ---------- CANCELAR ---------- */
+
+.btn-cancel {
+    background: rgba(30, 41, 59, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: #cbd5e1;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.btn-cancel:hover {
+    background: rgba(51, 65, 85, 0.70);
+
+    border-color: rgba(148, 163, 184, 0.25);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+.btn-cancel span {
+    font-size: 18px;
+
+    transition: transform 0.25s ease;
+}
+
+.btn-cancel:hover span {
+    transform: translateX(-3px);
+}
+
+
+/* ---------- CONTINUAR ---------- */
+
+.btn-delete {
+    background:
+        linear-gradient(
+            135deg,
+            #dc2626,
+            #b91c1c
+        );
+
+    border: 1px solid rgba(248, 113, 113, 0.20);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 13px 30px rgba(220, 38, 38, 0.18);
+}
+
+.btn-delete:hover {
+    filter: brightness(1.07);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 17px 38px rgba(220, 38, 38, 0.27);
+}
+
+.btn-delete span {
+    font-size: 18px;
+
+    transition: transform 0.25s ease;
+}
+
+.btn-delete:hover span {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   NOTA FINAL
+========================================================= */
+
+.delete-account-footer {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 22px;
+    padding: 0 5px;
+}
+
+.delete-account-footer > span {
+    margin-top: 1px;
+
+    font-size: 13px;
+}
+
+.delete-account-footer p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.delete-account-actions a:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .delete-account-page {
+        padding: 45px 17px 65px;
+    }
+
+    .delete-account-card {
+        padding: 30px 24px;
+        border-radius: 23px;
+    }
+
+    .delete-warning-box ul {
+        grid-template-columns: 1fr;
+    }
+
+    .delete-account-header {
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .delete-account-page {
+        padding: 32px 12px 50px;
+    }
+
+    .delete-account-card {
+        padding: 25px 18px;
+        border-radius: 20px;
+    }
+
+    .delete-account-header {
+        gap: 15px;
+        margin-bottom: 27px;
+    }
+
+    .delete-account-icon {
+        width: 56px;
+        height: 56px;
+
+        border-radius: 16px;
+
+        font-size: 24px;
+    }
+
+    .delete-account-header h1 {
+        font-size: 28px;
+    }
+
+    .delete-account-header p {
+        font-size: 13px;
+    }
+
+    .delete-warning-box,
+    .important-note {
+        padding: 21px 18px;
+    }
+
+    .delete-account-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .delete-account-header {
+        display: block;
+    }
+
+    .delete-account-icon {
+        margin-bottom: 17px;
+    }
+
+    .delete-account-header h1 {
+        font-size: 26px;
+    }
+
+}

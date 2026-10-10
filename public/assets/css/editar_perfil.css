@@ -1,0 +1,1169 @@
+/* ==========================================================
+   BODYTECH — EDITAR PERFIL
+   FRONTEND PROFESIONAL
+========================================================== */
+
+:root {
+    --edit-bg: #050d18;
+    --edit-bg-2: #081525;
+
+    --edit-card: rgba(9, 22, 38, 0.97);
+    --edit-card-soft: rgba(7, 18, 32, 0.92);
+
+    --edit-blue: #0d6efd;
+    --edit-blue-dark: #084b91;
+    --edit-blue-light: #3d96ff;
+
+    --edit-text: #f4f8fd;
+    --edit-text-soft: #aebed0;
+    --edit-text-muted: #71859b;
+
+    --edit-border: rgba(65, 135, 205, 0.25);
+    --edit-border-hover: rgba(55, 145, 235, 0.60);
+
+    --edit-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.50);
+
+    --edit-blue-shadow:
+        0 10px 30px rgba(13, 110, 253, 0.18);
+
+    --edit-radius: 18px;
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: #050d18;
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(13, 110, 253, 0.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 78, 160, 0.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #030914 0%,
+            #050d18 42%,
+            #081525 100%
+        );
+
+    background-attachment: fixed;
+
+    color: var(--edit-text);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/*
+   Asegura que el fondo permanezca oscuro incluso
+   cuando existan estilos generales heredados.
+*/
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(13, 110, 253, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #030914,
+            #071322
+        );
+}
+
+
+/* ==========================================================
+   CONTENEDOR
+========================================================== */
+
+.account-container {
+
+    width:
+        min(1100px, calc(100% - 40px));
+
+    margin:
+        55px auto 80px;
+
+    position: relative;
+
+    animation:
+        editPageEnter
+        0.75s
+        ease
+        both;
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.account-content {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   TARJETA PRINCIPAL
+========================================================== */
+
+.account-content > section {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 29, 49, 0.98),
+            rgba(5, 16, 29, 0.98)
+        );
+
+    border:
+        1px solid var(--edit-border);
+
+    border-radius:
+        var(--edit-radius);
+
+    box-shadow:
+        var(--edit-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    backdrop-filter:
+        blur(15px);
+
+    overflow: hidden;
+}
+
+
+/* Línea azul superior */
+
+.account-content > section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--edit-blue),
+            var(--edit-blue-light),
+            transparent
+        );
+
+    opacity: 0.9;
+}
+
+
+/* ==========================================================
+   TÍTULOS
+========================================================== */
+
+.account-content h1 {
+
+    margin:
+        0 0 30px;
+
+    color:
+        var(--edit-text);
+
+    font-size:
+        30px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.4px;
+}
+
+
+.account-content h2 {
+
+    margin:
+        0 0 24px;
+
+    color:
+        var(--edit-text);
+
+    font-size:
+        21px;
+
+    font-weight:
+        650;
+}
+
+
+/* ==========================================================
+   SEPARADOR
+========================================================== */
+
+.account-content hr {
+
+    width: 100%;
+
+    margin:
+        36px 0;
+
+    border: 0;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(75, 145, 210, 0.35),
+            transparent
+        );
+}
+
+
+/* ==========================================================
+   FORMULARIOS
+========================================================== */
+
+.profile-form {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    animation:
+        editFormEnter
+        0.65s
+        ease
+        both;
+}
+
+
+/* ==========================================================
+   SECCIÓN FOTO DE PERFIL
+========================================================== */
+
+.profile-form:first-of-type {
+
+    align-items:
+        center;
+
+    padding:
+        30px;
+
+    background:
+        rgba(4, 14, 26, 0.60);
+
+    border:
+        1px solid rgba(65, 130, 190, 0.18);
+
+    border-radius:
+        16px;
+
+    text-align:
+        center;
+}
+
+
+/* ==========================================================
+   SELECTOR DE FOTO
+========================================================== */
+
+/*
+   Ocultamos visualmente el selector nativo.
+   El área completa se convierte en una zona elegante.
+*/
+
+.profile-form:first-of-type input[type="file"] {
+
+    width:
+        min(430px, 100%);
+
+    height:
+        220px;
+
+    padding:
+        0;
+
+    border:
+        1px dashed rgba(67, 145, 225, 0.45);
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 31, 53, 0.90),
+            rgba(5, 17, 30, 0.90)
+        );
+
+    color:
+        transparent;
+
+    cursor:
+        pointer;
+
+    position:
+        relative;
+
+    text-align:
+        center;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/*
+   Hover del cuadro
+*/
+
+.profile-form:first-of-type input[type="file"]:hover {
+
+    border-color:
+        rgba(65, 157, 245, 0.80);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 38, 65, 0.95),
+            rgba(6, 21, 37, 0.95)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28),
+        0 0 25px rgba(13, 110, 253, 0.08);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/*
+   Botón interno del selector
+*/
+
+.profile-form:first-of-type
+input[type="file"]::file-selector-button {
+
+    display:
+        block;
+
+    margin:
+        0 auto;
+
+    margin-top:
+        150px;
+
+    padding:
+        9px 18px;
+
+    border:
+        1px solid rgba(58, 143, 229, 0.50);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(13, 110, 253, 0.16);
+
+    color:
+        #dcecff;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.profile-form:first-of-type
+input[type="file"]::file-selector-button:hover {
+
+    background:
+        rgba(13, 110, 253, 0.27);
+
+    border-color:
+        rgba(70, 158, 245, 0.75);
+}
+
+
+/* ==========================================================
+   ICONO CENTRAL DEL CUADRO
+========================================================== */
+
+.profile-form:first-of-type
+input[type="file"]::before {
+
+    content:
+        "✦";
+
+    position:
+        absolute;
+
+    top:
+        48px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid rgba(67, 148, 235, 0.30);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(13, 110, 253, 0.12);
+
+    color:
+        #75b6ff;
+
+    font-size:
+        27px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================================================
+   BOTÓN SUBIR FOTO
+========================================================== */
+
+.profile-form:first-of-type button {
+
+    align-self:
+        center;
+
+    min-height:
+        48px;
+
+    padding:
+        0 25px;
+
+    margin-top:
+        3px;
+
+    border:
+        1px solid rgba(55, 137, 224, 0.48);
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b4d91,
+            #083b72
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        650;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.28),
+        0 5px 18px rgba(13, 110, 253, 0.13);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.profile-form:first-of-type button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d63b8,
+            #094985
+        );
+
+    border-color:
+        rgba(68, 158, 245, 0.72);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35),
+        0 8px 25px rgba(13, 110, 253, 0.20);
+}
+
+
+/* ==========================================================
+   FORMULARIO INFORMACIÓN PERSONAL
+========================================================== */
+
+.profile-form:nth-of-type(2) {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        16px;
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.profile-form:nth-of-type(2) input,
+.profile-form:nth-of-type(2) select {
+
+    width:
+        100%;
+
+    min-height:
+        52px;
+
+    padding:
+        0 17px;
+
+    border:
+        1px solid rgba(87, 137, 184, 0.25);
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(4, 13, 24, 0.82);
+
+    color:
+        var(--edit-text);
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.profile-form:nth-of-type(2)
+input::placeholder {
+
+    color:
+        #71849a;
+}
+
+
+.profile-form:nth-of-type(2)
+input:hover,
+.profile-form:nth-of-type(2)
+select:hover {
+
+    border-color:
+        rgba(62, 135, 211, 0.45);
+
+    background:
+        rgba(6, 18, 32, 0.92);
+}
+
+
+.profile-form:nth-of-type(2)
+input:focus,
+.profile-form:nth-of-type(2)
+select:focus {
+
+    border-color:
+        var(--edit-blue);
+
+    background:
+        rgba(7, 20, 36, 0.96);
+
+    box-shadow:
+        0 0 0 3px rgba(13, 110, 253, 0.13),
+        0 8px 25px rgba(0, 0, 0, 0.18);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.profile-form select {
+
+    appearance:
+        none;
+
+    cursor:
+        pointer;
+
+    padding-right:
+        45px;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #7fa4c9 50%
+        ),
+        linear-gradient(
+            135deg,
+            #7fa4c9 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 19px) 22px,
+        calc(100% - 13px) 22px;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat:
+        no-repeat;
+}
+
+
+.profile-form select option {
+
+    background:
+        #0b1728;
+
+    color:
+        #f3f7fc;
+}
+
+
+/* ==========================================================
+   BOTÓN GUARDAR
+========================================================== */
+
+.profile-form:nth-of-type(2) button {
+
+    grid-column:
+        1 / -1;
+
+    justify-self:
+        start;
+
+    min-height:
+        48px;
+
+    padding:
+        0 25px;
+
+    margin-top:
+        5px;
+
+    border:
+        1px solid rgba(55, 137, 224, 0.48);
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b4d91,
+            #083b72
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        650;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.28),
+        0 5px 18px rgba(13, 110, 253, 0.13);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.profile-form:nth-of-type(2) button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d63b8,
+            #094985
+        );
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35),
+        0 8px 25px rgba(13, 110, 253, 0.20);
+}
+
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+@keyframes editPageEnter {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes editFormEnter {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   FOCUS ACCESIBLE
+========================================================== */
+
+.profile-form button:focus-visible,
+.profile-form input:focus-visible,
+.profile-form select:focus-visible {
+
+    outline:
+        2px solid rgba(66, 153, 242, 0.85);
+
+    outline-offset:
+        3px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 800px) {
+
+    .account-container {
+
+        width:
+            calc(100% - 28px);
+
+        margin-top:
+            35px;
+    }
+
+
+    .account-content > section {
+
+        padding:
+            28px;
+    }
+
+
+    .profile-form:nth-of-type(2) {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .profile-form:nth-of-type(2) button {
+
+        grid-column:
+            auto;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .account-container {
+
+        width:
+            calc(100% - 20px);
+
+        margin:
+            25px auto 50px;
+    }
+
+
+    .account-content > section {
+
+        padding:
+            22px 18px;
+
+        border-radius:
+            15px;
+    }
+
+
+    .account-content h1 {
+
+        font-size:
+            25px;
+    }
+
+
+    .account-content h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    .profile-form:first-of-type {
+
+        padding:
+            20px 15px;
+    }
+
+
+    .profile-form:first-of-type
+    input[type="file"] {
+
+        height:
+            190px;
+    }
+
+
+    .profile-form:first-of-type
+    input[type="file"]::file-selector-button {
+
+        margin-top:
+            125px;
+    }
+
+
+    .profile-form:nth-of-type(2)
+    input,
+    .profile-form:nth-of-type(2)
+    select {
+
+        min-height:
+            49px;
+
+        font-size:
+            14px;
+    }
+
+
+    .profile-form button {
+
+        width:
+            100%;
+    }
+}
+
+
+/* ==========================================================
+   REDUCIR MOVIMIENTO
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
+/* ==========================================================
+   FONDO GLOBAL EDITAR PERFIL — FORZADO
+========================================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background: #050d18 !important;
+
+    color: #f4f8fd;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(13, 110, 253, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(8, 75, 145, 0.12),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #020711 0%,
+            #050d18 45%,
+            #081525 100%
+        ) !important;
+
+    background-attachment: fixed !important;
+}
+
+
+/*
+   Capa oscura permanente sobre toda la página.
+   No afecta botones, formularios ni contenido.
+*/
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -999;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 7, 17, 0.92),
+            rgba(5, 13, 24, 0.88),
+            rgba(8, 21, 37, 0.94)
+        );
+
+}
+
+
+/*
+   El contenido queda por encima del fondo.
+*/
+
+.account-container {
+    position: relative;
+    z-index: 1;
+}
+/* ==========================================================
+   FONDO GLOBAL EDITAR PERFIL — FORZADO
+========================================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background: #050d18 !important;
+
+    color: #f4f8fd;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(13, 110, 253, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(8, 75, 145, 0.12),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #020711 0%,
+            #050d18 45%,
+            #081525 100%
+        ) !important;
+
+    background-attachment: fixed !important;
+}
+
+
+/*
+   Capa oscura permanente sobre toda la página.
+   No afecta botones, formularios ni contenido.
+*/
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -999;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 7, 17, 0.92),
+            rgba(5, 13, 24, 0.88),
+            rgba(8, 21, 37, 0.94)
+        );
+
+}
+
+
+/*
+   El contenido queda por encima del fondo.
+*/
+
+.account-container {
+    position: relative;
+    z-index: 1;
+}

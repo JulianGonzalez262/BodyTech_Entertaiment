@@ -1,0 +1,20 @@
+# Credenciales y configuraciones locales sensibles
+/app/config/database.php
+/app/config/pagos.php
+/node-server/config/database.js
+/app/auth/google_callback.php
+
+# Dependencias instaladas localmente
+/node-server/node_modules/
+
+# Archivos de entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Archivos temporales y registros
+*.log
+.DS_Store
+Thumbs.db
+/vendor/
+

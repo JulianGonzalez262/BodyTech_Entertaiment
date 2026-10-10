@@ -1,0 +1,505 @@
+/* =========================================================
+   BODYTECH — CONFIRMAR AUTENTICACIÓN POR CORREO
+   ========================================================= */
+
+:root {
+    --account-bg: #020617;
+    --account-card: rgba(15, 23, 42, 0.82);
+
+    --account-border: rgba(255, 255, 255, 0.10);
+    --account-border-soft: rgba(255, 255, 255, 0.07);
+
+    --account-text: #f8fafc;
+    --account-muted: #94a3b8;
+
+    --account-blue: #2563eb;
+    --account-blue-light: #3b82f6;
+
+    --account-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    --account-radius: 26px;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(37, 99, 235, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(30, 64, 175, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020617 0%,
+            #071225 50%,
+            #020617 100%
+        );
+
+    color: #f8fafc;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.account-container {
+    position: relative;
+
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   EFECTOS DE FONDO
+   ========================================================= */
+
+.account-container::before {
+    content: "";
+
+    position: fixed;
+
+    width: 430px;
+    height: 430px;
+
+    top: 5%;
+    left: -190px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.09);
+
+    filter: blur(95px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.account-container::after {
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    right: -180px;
+    bottom: 0;
+
+    border-radius: 50%;
+
+    background: rgba(59, 130, 246, 0.07);
+
+    filter: blur(95px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   TARJETA
+   ========================================================= */
+
+.account-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 620px;
+
+    box-sizing: border-box;
+
+    padding: 44px;
+
+    border-radius: var(--account-radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 42, 0.88),
+            rgba(15, 23, 42, 0.72)
+        );
+
+    border: 1px solid var(--account-border);
+
+    box-shadow:
+        var(--account-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    text-align: center;
+
+    animation: accountCardIn 0.55s ease both;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.account-content h1 {
+    margin: 0 0 18px;
+
+    color: #f8fafc;
+
+    font-size: clamp(27px, 4vw, 36px);
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.account-content > p {
+    margin: 0 auto 32px;
+
+    max-width: 470px;
+
+    color: var(--account-muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.profile-form {
+    width: 100%;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--account-border-soft);
+
+    text-align: left;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.profile-form label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.profile-form input[name="codigo"] {
+    width: 100%;
+
+    height: 62px;
+
+    box-sizing: border-box;
+
+    padding: 0 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: rgba(2, 6, 23, 0.62);
+
+    color: #f8fafc;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
+
+    text-align: center;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.profile-form input[name="codigo"]:hover {
+    background: rgba(15, 23, 42, 0.82);
+
+    border-color: rgba(96, 165, 250, 0.25);
+}
+
+.profile-form input[name="codigo"]:focus {
+    background: rgba(15, 23, 42, 0.94);
+
+    border-color: var(--account-blue-light);
+
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.10),
+        0 12px 30px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
+.profile-form button[type="submit"] {
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 18px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--account-blue),
+            var(--account-blue-light)
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.profile-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 17px 38px rgba(37, 99, 235, 0.32);
+}
+
+.profile-form button[type="submit"]:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =========================================================
+   ANIMACIÓN
+   ========================================================= */
+
+@keyframes accountCardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .account-container {
+        min-height: calc(100vh - 80px);
+
+        padding: 45px 16px;
+    }
+
+    .account-content {
+        padding: 30px 22px;
+
+        border-radius: 22px;
+    }
+
+    .account-content h1 {
+        font-size: 28px;
+    }
+
+    .profile-form {
+        padding: 22px 18px;
+    }
+
+    .profile-form input[name="codigo"] {
+        height: 58px;
+
+        font-size: 20px;
+
+        letter-spacing: 5px;
+    }
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .account-container {
+        padding: 35px 12px;
+    }
+
+    .account-content {
+        padding: 25px 16px;
+
+        border-radius: 20px;
+    }
+
+    .account-content h1 {
+        font-size: 25px;
+    }
+
+    .account-content > p {
+        font-size: 14px;
+    }
+
+    .profile-form {
+        padding: 18px 14px;
+    }
+
+    .profile-form input[name="codigo"] {
+        font-size: 18px;
+
+        letter-spacing: 4px;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================================
+   BODYTECH — FONDO OSCURO GLOBAL
+   ========================================================= */
+
+html,
+body {
+    background: #020617 !important;
+    color: #f8fafc !important;
+}
+
+body {
+    min-height: 100vh !important;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(37, 99, 235, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(30, 64, 175, 0.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020617 0%,
+            #071225 50%,
+            #020617 100%
+        ) !important;
+}

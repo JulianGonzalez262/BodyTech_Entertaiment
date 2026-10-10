@@ -1,0 +1,844 @@
+/* ==========================================================
+   BODYTECH — MONITOREAR GIMNASIO
+   Administración
+   Diseño oscuro / azul profesional
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+    --admin-bg: #020b18;
+
+    --admin-card: #08182c;
+    --admin-card-secondary: #061426;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-success: #27c47d;
+    --admin-danger: #ef5b68;
+
+    --admin-rating: #f5b942;
+
+    --admin-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--admin-bg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+}
+
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.admin-monitor-page {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 42px 0 60px;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.monitor-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+}
+
+.header-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: 0;
+}
+
+.header-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #fff;
+
+    font-size: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--admin-blue),
+            var(--admin-blue-light)
+        );
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 25px rgba(23, 105, 224, 0.24);
+}
+
+.header-kicker {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--admin-blue-light);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.header-title h1 {
+    margin: 0;
+
+    overflow: hidden;
+
+    color: var(--admin-text);
+
+    font-size: clamp(24px, 3vw, 32px);
+
+    line-height: 1.2;
+
+    text-overflow: ellipsis;
+}
+
+.header-title p {
+    margin: 7px 0 0;
+
+    color: var(--admin-text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   BACK BUTTON
+========================================================== */
+
+.back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+
+    padding: 11px 17px;
+
+    color: var(--admin-text);
+
+    text-decoration: none;
+
+    background:
+        rgba(8, 24, 44, 0.8);
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.back-button:hover {
+    background:
+        rgba(23, 105, 224, 0.12);
+
+    border-color:
+        var(--admin-border-hover);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ==========================================================
+   SUMMARY
+========================================================== */
+
+.monitor-summary {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: fit-content;
+
+    min-width: 220px;
+
+    margin-bottom: 30px;
+
+    padding: 17px 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.96),
+            rgba(6, 20, 38, 0.96)
+        );
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    animation:
+        adminFadeUp 0.4s ease both;
+}
+
+.summary-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.12);
+
+    border:
+        1px solid rgba(63, 140, 255, 0.18);
+
+    border-radius: 12px;
+
+    font-size: 17px;
+}
+
+.summary-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--admin-muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.monitor-summary strong {
+    display: block;
+
+    color: var(--admin-text);
+
+    font-size: 22px;
+
+    line-height: 1;
+}
+
+
+/* ==========================================================
+   REVIEWS SECTION
+========================================================== */
+
+.reviews-section {
+    animation:
+        adminFadeUp 0.5s ease both;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.section-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.12);
+
+    border:
+        1px solid rgba(63, 140, 255, 0.18);
+
+    border-radius: 12px;
+
+    font-size: 16px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--admin-text);
+
+    font-size: 19px;
+}
+
+.section-heading p {
+    margin: 4px 0 0;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   REVIEWS LIST
+========================================================== */
+
+.reviews-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* ==========================================================
+   REVIEW CARD
+========================================================== */
+
+.review-card {
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.96),
+            rgba(6, 20, 38, 0.96)
+        );
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        var(--admin-shadow);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.review-card:hover {
+    border-color:
+        var(--admin-border-hover);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==========================================================
+   REVIEW HEADER
+========================================================== */
+
+.review-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 17px;
+
+    border-bottom:
+        1px solid rgba(63, 140, 255, 0.10);
+}
+
+.user-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.user-avatar {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.12);
+
+    border:
+        1px solid rgba(63, 140, 255, 0.18);
+
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+.user-info h3 {
+    margin: 0 0 5px;
+
+    color: var(--admin-text);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+.review-date {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--admin-muted);
+
+    font-size: 11px;
+}
+
+.review-date i {
+    color: var(--admin-blue-light);
+}
+
+
+/* ==========================================================
+   RATING
+========================================================== */
+
+.rating {
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    flex-shrink: 0;
+
+    padding: 8px 11px;
+
+    background:
+        rgba(245, 185, 66, 0.07);
+
+    border:
+        1px solid rgba(245, 185, 66, 0.14);
+
+    border-radius: 9px;
+
+    color: var(--admin-rating);
+
+    font-size: 13px;
+}
+
+.rating i {
+    font-size: 13px;
+}
+
+.rating-number {
+    margin-left: 6px;
+
+    color: var(--admin-text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   COMMENT
+========================================================== */
+
+.review-comment {
+    display: flex;
+
+    gap: 14px;
+
+    padding: 20px 3px 18px;
+}
+
+.comment-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--admin-blue-light);
+
+    font-size: 13px;
+}
+
+.review-comment p {
+    margin: 0;
+
+    color: var(--admin-text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.review-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid rgba(63, 140, 255, 0.08);
+}
+
+.delete-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    color: #fff;
+
+    background:
+        rgba(239, 91, 104, 0.10);
+
+    border:
+        1px solid rgba(239, 91, 104, 0.24);
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.delete-button:hover {
+    background:
+        rgba(239, 91, 104, 0.18);
+
+    border-color:
+        rgba(239, 91, 104, 0.45);
+
+    transform:
+        translateY(-1px);
+}
+
+.delete-button i {
+    color: var(--admin-danger);
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-reviews {
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.92),
+            rgba(6, 20, 38, 0.92)
+        );
+
+    border:
+        1px dashed rgba(63, 140, 255, 0.22);
+
+    border-radius: 16px;
+}
+
+.empty-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+
+    color: var(--admin-muted);
+
+    background:
+        rgba(63, 140, 255, 0.07);
+
+    border-radius: 15px;
+
+    font-size: 21px;
+}
+
+.empty-reviews h3 {
+    margin: 0 0 7px;
+
+    color: var(--admin-text);
+
+    font-size: 16px;
+}
+
+.empty-reviews p {
+    max-width: 440px;
+
+    margin: 0 auto;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.monitor-footer {
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(63, 140, 255, 0.08);
+}
+
+.monitor-footer a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-text-secondary);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease;
+}
+
+.monitor-footer a:hover {
+    color: var(--admin-blue-light);
+}
+
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+@keyframes adminFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .admin-monitor-page {
+        width:
+            min(100% - 24px, 1100px);
+
+        padding-top: 25px;
+    }
+
+    .monitor-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .back-button {
+        width: 100%;
+    }
+
+    .review-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .rating {
+        align-self: flex-start;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .header-title {
+        align-items: flex-start;
+    }
+
+    .header-icon {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 13px;
+    }
+
+    .header-title h1 {
+        font-size: 23px;
+    }
+
+    .header-title p {
+        font-size: 13px;
+    }
+
+    .monitor-summary {
+        width: 100%;
+    }
+
+    .review-card {
+        padding: 18px;
+    }
+
+    .review-comment {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .review-actions {
+        justify-content: stretch;
+    }
+
+    .delete-button {
+        width: 100%;
+    }
+
+}

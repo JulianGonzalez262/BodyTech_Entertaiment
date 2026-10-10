@@ -1,0 +1,571 @@
+/* =========================================================
+   BODYTECH — CONFIRMAR CÓDIGO DE ELIMINACIÓN
+   ========================================================= */
+
+:root {
+    --delete-bg: #020617;
+    --delete-card: rgba(15, 23, 42, 0.82);
+
+    --delete-border: rgba(255, 255, 255, 0.10);
+    --delete-border-soft: rgba(255, 255, 255, 0.07);
+
+    --delete-text: #f8fafc;
+    --delete-muted: #94a3b8;
+
+    --delete-blue: #2563eb;
+    --delete-blue-light: #3b82f6;
+
+    --delete-red: #ef4444;
+    --delete-red-soft: rgba(239, 68, 68, 0.10);
+
+    --delete-green: #22c55e;
+    --delete-green-soft: rgba(34, 197, 94, 0.10);
+
+    --delete-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    --delete-radius: 26px;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(37, 99, 235, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(59, 130, 246, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020617 0%,
+            #071225 48%,
+            #020617 100%
+        );
+
+    color: var(--delete-text);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+body > main,
+main {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+}
+
+
+/* =========================================================
+   CONTENEDOR DE LA VALIDACIÓN
+   ========================================================= */
+
+main > * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TARJETA VISUAL
+   ========================================================= */
+
+/*
+   El PHP actual no utiliza una clase específica para la tarjeta,
+   así que el contenido directo de main se agrupa visualmente
+   mediante el propio main.
+*/
+
+main {
+    position: relative;
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+main h1 {
+    margin: 0 0 18px;
+
+    font-size: clamp(28px, 4vw, 42px);
+
+    font-weight: 700;
+
+    letter-spacing: -0.8px;
+
+    line-height: 1.2;
+
+    text-align: center;
+}
+
+main h2 {
+    margin: 0 0 18px;
+
+    font-size: 24px;
+
+    font-weight: 650;
+
+    color: var(--delete-text);
+}
+
+main p {
+    color: var(--delete-muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CUANDO HAY ERRORES
+   ========================================================= */
+
+main h2:first-of-type {
+    color: var(--delete-red);
+}
+
+
+/* =========================================================
+   LISTA DE ERRORES
+   ========================================================= */
+
+main ul {
+    margin: 24px 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+main li {
+    position: relative;
+
+    padding: 14px 16px 14px 44px;
+
+    border-radius: 12px;
+
+    background: var(--delete-red-soft);
+
+    border: 1px solid rgba(239, 68, 68, 0.18);
+
+    color: #fecaca;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+main li::before {
+    content: "!";
+    
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(239, 68, 68, 0.18);
+
+    color: #f87171;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   ENLACE VOLVER
+   ========================================================= */
+
+main a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 8px;
+
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--delete-border);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+main a:hover {
+    background: rgba(37, 99, 235, 0.12);
+
+    border-color: rgba(96, 165, 250, 0.30);
+
+    color: #bfdbfe;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+main form {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--delete-border-soft);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   INPUT CÓDIGO
+   ========================================================= */
+
+main input[name="codigo"] {
+    width: 100%;
+
+    height: 62px;
+
+    box-sizing: border-box;
+
+    padding: 0 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: rgba(2, 6, 23, 0.65);
+
+    color: #f8fafc;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
+
+    text-align: center;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+main input[name="codigo"]::placeholder {
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+}
+
+main input[name="codigo"]:hover {
+    background: rgba(15, 23, 42, 0.82);
+
+    border-color: rgba(96, 165, 250, 0.25);
+}
+
+main input[name="codigo"]:focus {
+    background: rgba(15, 23, 42, 0.92);
+
+    border-color: var(--delete-blue-light);
+
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.10),
+        0 10px 30px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   BOTÓN VERIFICAR
+   ========================================================= */
+
+main button[type="submit"] {
+    width: 100%;
+
+    height: 54px;
+
+    margin-top: 16px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--delete-blue),
+            var(--delete-blue-light)
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+main button[type="submit"]:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 16px 36px rgba(37, 99, 235, 0.32);
+}
+
+main button[type="submit"]:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =========================================================
+   TEXTO DE INFORMACIÓN
+   ========================================================= */
+
+main p {
+    max-width: 620px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   ESTADO CORRECTO
+   ========================================================= */
+
+main h2 {
+    position: relative;
+}
+
+
+/* =========================================================
+   EFECTOS DE LA TARJETA PRINCIPAL
+   ========================================================= */
+
+main::before {
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    top: 8%;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+main::after {
+    content: "";
+
+    position: fixed;
+
+    width: 380px;
+    height: 380px;
+
+    right: -160px;
+    bottom: 5%;
+
+    border-radius: 50%;
+
+    background: rgba(59, 130, 246, 0.07);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    main {
+        min-height: calc(100vh - 80px);
+
+        padding: 45px 16px;
+    }
+
+    main h1 {
+        font-size: 30px;
+    }
+
+    main h2 {
+        font-size: 21px;
+    }
+
+    main form {
+        padding: 22px 18px;
+
+        border-radius: 18px;
+    }
+
+    main input[name="codigo"] {
+        height: 58px;
+
+        font-size: 20px;
+
+        letter-spacing: 5px;
+    }
+
+    main button[type="submit"] {
+        height: 52px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    main h1 {
+        font-size: 26px;
+    }
+
+    main p {
+        font-size: 14px;
+    }
+
+    main form {
+        padding: 18px 14px;
+    }
+
+    main input[name="codigo"] {
+        font-size: 18px;
+
+        letter-spacing: 4px;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,1126 @@
+/* ==========================================================
+   BODYTECH — GESTIÓN DE CUPONES
+   Panel administrativo
+   Diseño profesional oscuro / azul
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --admin-bg: #020b18;
+
+    --admin-card: #08182c;
+    --admin-card-secondary: #061426;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-success: #27c47d;
+    --admin-danger: #ef5b68;
+
+    --admin-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+
+    min-height: 100%;
+
+    background: var(--admin-bg);
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR PRINCIPAL
+========================================================== */
+
+.admin-coupons-page {
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.page-header {
+
+    border-bottom: 1px solid var(--admin-border);
+
+    background:
+        rgba(2, 11, 24, 0.92);
+
+}
+
+
+.header-content {
+
+    width: min(1500px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.header-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+}
+
+
+.header-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--admin-blue),
+            #0e4fb1
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 22px rgba(23, 105, 224, 0.22);
+
+}
+
+
+.header-title h1 {
+
+    margin: 0 0 5px;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.header-title p {
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================================================
+   BOTÓN VOLVER
+========================================================== */
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 10px;
+
+    color: var(--admin-text-secondary);
+
+    background: rgba(8, 24, 44, 0.7);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-button:hover {
+
+    color: white;
+
+    border-color: var(--admin-border-hover);
+
+    background: rgba(23, 105, 224, 0.10);
+
+    transform: translateX(-2px);
+
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.content-wrapper {
+
+    width: min(1500px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 38px 0 45px;
+
+}
+
+
+/* ==========================================================
+   CABECERA DE SECCIÓN
+========================================================== */
+
+.section-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.section-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(23, 105, 224, 0.12);
+
+    border: 1px solid var(--admin-border);
+
+    color: var(--admin-blue-light);
+
+    font-size: 17px;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0 0 4px;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+}
+
+
+.section-heading p {
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================================
+   BOTÓN CREAR
+========================================================== */
+
+.create-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--admin-blue),
+            #0f58c7
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(23, 105, 224, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+.create-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(23, 105, 224, 0.28);
+
+    filter: brightness(1.08);
+
+}
+
+
+/* ==========================================================
+   TARJETA TABLA
+========================================================== */
+
+.table-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.98),
+            rgba(6, 20, 38, 0.98)
+        );
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--admin-shadow);
+
+    overflow: hidden;
+
+    animation: tableEntrance 0.45s ease both;
+
+}
+
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.table-wrapper::-webkit-scrollbar {
+
+    height: 8px;
+
+}
+
+
+.table-wrapper::-webkit-scrollbar-track {
+
+    background: #04101f;
+
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb {
+
+    background: rgba(63, 140, 255, 0.25);
+
+    border-radius: 10px;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 1250px;
+
+    border-collapse: collapse;
+
+}
+
+
+thead {
+
+    background:
+        rgba(2, 11, 24, 0.75);
+
+}
+
+
+th {
+
+    padding: 16px 15px;
+
+    border-bottom: 1px solid var(--admin-border);
+
+    color: var(--admin-muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    text-align: left;
+
+    white-space: nowrap;
+
+}
+
+
+td {
+
+    padding: 17px 15px;
+
+    border-bottom: 1px solid rgba(63, 140, 255, 0.08);
+
+    color: var(--admin-text-secondary);
+
+    font-size: 13px;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+
+}
+
+
+tbody tr {
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+tbody tr:hover {
+
+    background:
+        rgba(23, 105, 224, 0.055);
+
+}
+
+
+tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* ==========================================================
+   ID
+========================================================== */
+
+.coupon-id {
+
+    color: var(--admin-muted);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+}
+
+
+/* ==========================================================
+   CÓDIGO
+========================================================== */
+
+.coupon-code {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.code-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(23, 105, 224, 0.12);
+
+    border: 1px solid rgba(63, 140, 255, 0.15);
+
+    color: var(--admin-blue-light);
+
+    font-size: 13px;
+
+}
+
+
+.coupon-code strong {
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 0.4px;
+
+}
+
+
+/* ==========================================================
+   TIPO
+========================================================== */
+
+.type-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.type-badge.percentage {
+
+    color: #74aaff;
+
+    background: rgba(63, 140, 255, 0.10);
+
+    border: 1px solid rgba(63, 140, 255, 0.16);
+
+}
+
+
+.type-badge.fixed {
+
+    color: #7ee5b5;
+
+    background: rgba(39, 196, 125, 0.09);
+
+    border: 1px solid rgba(39, 196, 125, 0.15);
+
+}
+
+
+/* ==========================================================
+   VALOR
+========================================================== */
+
+.discount-value {
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+.money-value {
+
+    color: var(--admin-text-secondary);
+
+}
+
+
+/* ==========================================================
+   USOS
+========================================================== */
+
+.usage-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.usage-current {
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+.usage-divider {
+
+    color: var(--admin-muted);
+
+}
+
+
+.usage-max {
+
+    color: var(--admin-muted);
+
+}
+
+
+/* ==========================================================
+   FECHAS
+========================================================== */
+
+.date-cell {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-text-secondary);
+
+}
+
+
+.date-cell i {
+
+    color: var(--admin-muted);
+
+    font-size: 12px;
+
+}
+
+
+/* ==========================================================
+   ESTADOS
+========================================================== */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.status-badge.active {
+
+    color: #67dfa8;
+
+    background: rgba(39, 196, 125, 0.10);
+
+    border: 1px solid rgba(39, 196, 125, 0.17);
+
+}
+
+
+.status-badge.inactive {
+
+    color: #ff7f89;
+
+    background: rgba(239, 91, 104, 0.09);
+
+    border: 1px solid rgba(239, 91, 104, 0.16);
+
+}
+
+
+/* ==========================================================
+   BOTÓN EDITAR
+========================================================== */
+
+.action-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border: 1px solid rgba(63, 140, 255, 0.18);
+
+    border-radius: 8px;
+
+    background: rgba(23, 105, 224, 0.08);
+
+    color: #74aaff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.action-button:hover {
+
+    color: white;
+
+    background: rgba(23, 105, 224, 0.17);
+
+    border-color: var(--admin-border-hover);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+   ESTADO VACÍO
+========================================================== */
+
+.empty-state {
+
+    min-height: 310px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+}
+
+
+.empty-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    margin-bottom: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: rgba(23, 105, 224, 0.10);
+
+    border: 1px solid var(--admin-border);
+
+    color: var(--admin-blue-light);
+
+    font-size: 23px;
+
+}
+
+
+.empty-state h3 {
+
+    margin: 0 0 7px;
+
+    color: white;
+
+    font-size: 18px;
+
+}
+
+
+.empty-state p {
+
+    max-width: 430px;
+
+    margin: 0 0 20px;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.empty-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    background: rgba(23, 105, 224, 0.12);
+
+    border: 1px solid var(--admin-border);
+
+    color: #74aaff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.empty-button:hover {
+
+    background: rgba(23, 105, 224, 0.20);
+
+    border-color: var(--admin-border-hover);
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.page-footer {
+
+    margin-top: 20px;
+
+}
+
+
+.page-footer a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-muted);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.page-footer a:hover {
+
+    color: var(--admin-blue-light);
+
+}
+
+
+/* ==========================================================
+   ANIMACIÓN
+========================================================== */
+
+@keyframes tableEntrance {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .header-content {
+
+        width: min(100% - 32px, 1500px);
+
+        padding: 18px 0;
+
+        align-items: flex-start;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .content-wrapper {
+
+        width: min(100% - 32px, 1500px);
+
+        padding-top: 28px;
+
+    }
+
+
+    .section-top {
+
+        align-items: flex-start;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+@media (max-width: 620px) {
+
+    .header-content {
+
+        flex-direction: column;
+
+        gap: 16px;
+
+    }
+
+
+    .header-title {
+
+        width: 100%;
+
+    }
+
+
+    .back-button {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+    .content-wrapper {
+
+        width: min(100% - 24px, 1500px);
+
+        padding-top: 22px;
+
+    }
+
+
+    .section-top {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .create-button {
+
+        width: 100%;
+
+    }
+
+
+    .table-card {
+
+        border-radius: 14px;
+
+    }
+
+
+    th {
+
+        padding: 14px 12px;
+
+    }
+
+
+    td {
+
+        padding: 15px 12px;
+
+    }
+
+}

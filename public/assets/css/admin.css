@@ -1,0 +1,562 @@
+/* ==========================================================
+   BODYTECH — PANEL ADMINISTRADOR
+   Diseño profesional, sencillo y limpio
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+    --admin-bg: #020b18;
+    --admin-bg-secondary: #061426;
+
+    --admin-card: #08182c;
+    --admin-card-hover: #0c2039;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-danger: #ef5b68;
+
+    --admin-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   DOCUMENTO
+========================================================== */
+
+html {
+    min-height: 100%;
+    background: var(--admin-bg);
+}
+
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+}
+
+
+/* ==========================================================
+   PANEL PRINCIPAL
+========================================================== */
+
+.panel {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px 70px;
+
+    animation:
+        adminPageEnter 0.5s ease both;
+}
+
+
+/* ==========================================================
+   ENCABEZADO
+========================================================== */
+
+.header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding-bottom: 24px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+/* Título */
+
+.header h1 {
+    position: relative;
+
+    margin: 0;
+
+    padding-left: 16px;
+
+    color: var(--admin-text);
+
+    font-size: 32px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* Línea azul del título */
+
+.header h1::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 5px;
+    height: 32px;
+
+    transform: translateY(-50%);
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--admin-blue-light),
+            var(--admin-blue)
+        );
+}
+
+
+/* ==========================================================
+   BOTÓN CERRAR SESIÓN
+========================================================== */
+
+.header > a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid rgba(239, 91, 104, 0.25);
+
+    border-radius: 9px;
+
+    color: #ffb8bf;
+
+    background:
+        rgba(239, 91, 104, 0.06);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.header > a i {
+    font-size: 14px;
+}
+
+
+.header > a:hover {
+    color: #ffffff;
+
+    background:
+        rgba(239, 91, 104, 0.12);
+
+    border-color:
+        rgba(239, 91, 104, 0.45);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==========================================================
+   MENSAJE DE BIENVENIDA
+========================================================== */
+
+.panel > p {
+    margin: 25px 0 30px;
+
+    padding: 18px 20px;
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 12px;
+
+    color: var(--admin-text-secondary);
+
+    background:
+        rgba(7, 20, 38, 0.75);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.panel > p strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   SEPARADOR
+========================================================== */
+
+.panel hr {
+    margin: 0 0 25px;
+
+    border: 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ==========================================================
+   LISTA DE OPCIONES
+========================================================== */
+
+.panel ul {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* ==========================================================
+   ELEMENTOS DE LA LISTA
+========================================================== */
+
+.panel li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   TARJETAS / BOTONES
+========================================================== */
+
+.panel li a {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 82px;
+
+    padding: 18px 20px;
+
+    border:
+        1px solid var(--admin-border);
+
+    border-radius: 14px;
+
+    color: var(--admin-text);
+
+    background:
+        var(--admin-card);
+
+    box-shadow:
+        var(--admin-shadow);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Línea azul lateral */
+
+.panel li a::before {
+    content: "";
+
+    width: 3px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 4px;
+
+    background:
+        var(--admin-blue);
+
+    transition:
+        background 0.2s ease;
+}
+
+
+/* ==========================================================
+   ICONOS
+========================================================== */
+
+.panel li a i {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid rgba(63, 140, 255, 0.20);
+
+    border-radius: 10px;
+
+    color:
+        var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.10);
+
+    font-size: 17px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* ==========================================================
+   TEXTO DE LAS OPCIONES
+========================================================== */
+
+.panel li a span {
+    flex: 1;
+
+    color: var(--admin-text);
+
+    line-height: 1.35;
+}
+
+
+/* ==========================================================
+   HOVER DE LAS TARJETAS
+========================================================== */
+
+.panel li a:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--admin-card-hover);
+
+    border-color:
+        var(--admin-border-hover);
+
+    box-shadow:
+        0 20px 42px rgba(0, 0, 0, 0.45);
+}
+
+
+.panel li a:hover::before {
+    background:
+        var(--admin-blue-light);
+}
+
+
+.panel li a:hover i {
+    background:
+        rgba(23, 105, 224, 0.18);
+
+    border-color:
+        rgba(63, 140, 255, 0.35);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* ==========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================== */
+
+@keyframes adminPageEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .panel ul {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==========================================================
+   MÓVIL
+========================================================== */
+
+@media (max-width: 620px) {
+
+    .panel {
+        padding:
+            30px 18px 50px;
+    }
+
+
+    .header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+
+    .header > a {
+        width: 100%;
+    }
+
+
+    .panel > p {
+        margin-top: 22px;
+
+        padding: 17px 18px;
+    }
+
+
+    .panel ul {
+        grid-template-columns: 1fr;
+    }
+
+
+    .panel li a {
+        min-height: 76px;
+
+        padding:
+            17px;
+    }
+
+}
+
+
+/* ==========================================================
+   MÓVILES PEQUEÑOS
+========================================================== */
+
+@media (max-width: 400px) {
+
+    .panel {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+
+    .panel li a {
+        font-size: 14px;
+    }
+
+
+    .panel li a i {
+        width: 37px;
+        height: 37px;
+
+        font-size: 15px;
+    }
+
+}

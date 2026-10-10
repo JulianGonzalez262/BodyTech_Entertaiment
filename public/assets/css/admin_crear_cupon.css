@@ -1,0 +1,1077 @@
+/* ==========================================================
+   BODYTECH — CREAR CUPÓN
+   Panel administrativo
+   Diseño profesional oscuro / azul
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --admin-bg: #020b18;
+
+    --admin-card: #08182c;
+    --admin-card-secondary: #061426;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-success: #27c47d;
+    --admin-danger: #ef5b68;
+
+    --admin-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+
+    min-height: 100%;
+
+    background: var(--admin-bg);
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR
+========================================================== */
+
+.admin-coupon-create-page {
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.page-header {
+
+    border-bottom: 1px solid var(--admin-border);
+
+    background:
+        rgba(2, 11, 24, 0.92);
+
+}
+
+
+.header-content {
+
+    width: min(1200px, calc(100% - 48px));
+
+    min-height: 100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.header-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+}
+
+
+.header-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--admin-blue),
+            #0e4fb1
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 22px rgba(23, 105, 224, 0.22);
+
+}
+
+
+.header-title h1 {
+
+    margin: 0 0 5px;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.header-title p {
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================================================
+   VOLVER
+========================================================== */
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 10px;
+
+    background: rgba(8, 24, 44, 0.70);
+
+    color: var(--admin-text-secondary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-button:hover {
+
+    color: white;
+
+    border-color: var(--admin-border-hover);
+
+    background: rgba(23, 105, 224, 0.10);
+
+    transform: translateX(-2px);
+
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.content-wrapper {
+
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 38px 0 45px;
+
+}
+
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.form-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        330px;
+
+    gap: 24px;
+
+    align-items: start;
+
+}
+
+
+/* ==========================================================
+   TARJETA FORMULARIO
+========================================================== */
+
+.form-card {
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.98),
+            rgba(6, 20, 38, 0.98)
+        );
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--admin-shadow);
+
+    animation: formEntrance 0.45s ease both;
+
+}
+
+
+/* ==========================================================
+   CABECERA TARJETA
+========================================================== */
+
+.card-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 24px;
+
+    margin-bottom: 24px;
+
+    border-bottom: 1px solid rgba(63, 140, 255, 0.10);
+
+}
+
+
+.heading-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(23, 105, 224, 0.12);
+
+    border: 1px solid var(--admin-border);
+
+    color: var(--admin-blue-light);
+
+    font-size: 17px;
+
+}
+
+
+.card-heading h2 {
+
+    margin: 0 0 4px;
+
+    color: white;
+
+    font-size: 19px;
+
+}
+
+
+.card-heading p {
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================================
+   SECCIONES
+========================================================== */
+
+.form-section {
+
+    padding-bottom: 25px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid rgba(63, 140, 255, 0.08);
+
+}
+
+
+.form-section:last-of-type {
+
+    margin-bottom: 0;
+
+}
+
+
+.section-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    color: #dbe8f8;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.section-label i {
+
+    color: var(--admin-blue-light);
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================================
+   GRID DE CAMPOS
+========================================================== */
+
+.field-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+}
+
+
+/* ==========================================================
+   CAMPO
+========================================================== */
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field label {
+
+    margin-bottom: 7px;
+
+    color: var(--admin-text-secondary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.input-wrapper {
+
+    position: relative;
+
+}
+
+
+.input-icon {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+    pointer-events: none;
+
+    transition: color 0.2s ease;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 14px 0 41px;
+
+    border: 1px solid rgba(63, 140, 255, 0.16);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(3, 14, 28, 0.75);
+
+    color: var(--admin-text);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+select {
+
+    appearance: none;
+
+    cursor: pointer;
+
+    padding-right: 40px;
+
+}
+
+
+input::placeholder {
+
+    color: #60748d;
+
+}
+
+
+input:hover,
+select:hover {
+
+    border-color: rgba(63, 140, 255, 0.28);
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: var(--admin-blue-light);
+
+    background: rgba(6, 20, 38, 0.95);
+
+    box-shadow:
+        0 0 0 3px rgba(63, 140, 255, 0.08);
+
+}
+
+
+.input-wrapper:focus-within .input-icon {
+
+    color: var(--admin-blue-light);
+
+}
+
+
+select option {
+
+    background: #08182c;
+
+    color: white;
+
+}
+
+
+.field-help {
+
+    margin-top: 7px;
+
+    color: var(--admin-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================================
+   DATETIME
+========================================================== */
+
+input[type="datetime-local"] {
+
+    color-scheme: dark;
+
+}
+
+
+/* ==========================================================
+   ACCIONES
+========================================================== */
+
+.form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 27px;
+
+}
+
+
+.cancel-button,
+.save-button {
+
+    min-height: 44px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.cancel-button {
+
+    border: 1px solid rgba(113, 133, 157, 0.20);
+
+    background: rgba(113, 133, 157, 0.06);
+
+    color: var(--admin-text-secondary);
+
+}
+
+
+.cancel-button:hover {
+
+    border-color: rgba(169, 186, 208, 0.28);
+
+    background: rgba(113, 133, 157, 0.11);
+
+    color: white;
+
+}
+
+
+.save-button {
+
+    border: 1px solid transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--admin-blue),
+            #0f58c7
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(23, 105, 224, 0.18);
+
+}
+
+
+.save-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(23, 105, 224, 0.26);
+
+    filter: brightness(1.08);
+
+}
+
+
+/* ==========================================================
+   PANEL INFORMATIVO
+========================================================== */
+
+.info-card {
+
+    padding: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.96),
+            rgba(6, 20, 38, 0.96)
+        );
+
+    border: 1px solid var(--admin-border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--admin-shadow);
+
+    animation: infoEntrance 0.5s ease both;
+
+}
+
+
+.info-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    margin-bottom: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(23, 105, 224, 0.12);
+
+    border: 1px solid var(--admin-border);
+
+    color: var(--admin-blue-light);
+
+    font-size: 17px;
+
+}
+
+
+.info-card h3 {
+
+    margin: 0 0 7px;
+
+    color: white;
+
+    font-size: 17px;
+
+}
+
+
+.info-card > p {
+
+    margin: 0 0 24px;
+
+    color: var(--admin-muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+   ITEMS INFORMATIVOS
+========================================================== */
+
+.info-item {
+
+    display: flex;
+
+    gap: 11px;
+
+    padding: 15px 0;
+
+    border-top: 1px solid rgba(63, 140, 255, 0.08);
+
+}
+
+
+.info-item-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(23, 105, 224, 0.09);
+
+    color: var(--admin-blue-light);
+
+    font-size: 11px;
+
+}
+
+
+.info-item strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #dbe8f8;
+
+    font-size: 12px;
+
+}
+
+
+.info-item span {
+
+    display: block;
+
+    color: var(--admin-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.page-footer {
+
+    margin-top: 20px;
+
+}
+
+
+.page-footer a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-muted);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: color 0.2s ease;
+
+}
+
+
+.page-footer a:hover {
+
+    color: var(--admin-blue-light);
+
+}
+
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+@keyframes formEntrance {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+@keyframes infoEntrance {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 950px) {
+
+    .form-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .info-card {
+
+        order: 2;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .header-content {
+
+        width: min(100% - 32px, 1200px);
+
+        min-height: auto;
+
+        padding: 18px 0;
+
+        align-items: flex-start;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .content-wrapper {
+
+        width: min(100% - 32px, 1200px);
+
+        padding-top: 28px;
+
+    }
+
+
+    .form-card {
+
+        padding: 24px 20px;
+
+    }
+
+
+    .field-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .header-content {
+
+        flex-direction: column;
+
+        gap: 16px;
+
+    }
+
+
+    .header-title {
+
+        width: 100%;
+
+    }
+
+
+    .back-button {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+    .content-wrapper {
+
+        width: min(100% - 24px, 1200px);
+
+        padding-top: 22px;
+
+    }
+
+
+    .form-card {
+
+        border-radius: 14px;
+
+        padding: 21px 16px;
+
+    }
+
+
+    .info-card {
+
+        border-radius: 14px;
+
+        padding: 21px 17px;
+
+    }
+
+
+    .form-actions {
+
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+
+    }
+
+
+    .cancel-button,
+    .save-button {
+
+        width: 100%;
+
+    }
+
+}

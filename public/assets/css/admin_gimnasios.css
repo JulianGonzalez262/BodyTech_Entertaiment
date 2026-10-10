@@ -1,0 +1,1078 @@
+/* ==========================================================
+   BODYTECH — ADMIN
+   GIMNASIOS
+   Diseño oscuro / azul profesional
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --admin-bg: #020b18;
+
+    --admin-card: #08182c;
+    --admin-card-secondary: #061426;
+
+    --admin-blue: #1769e0;
+    --admin-blue-light: #3f8cff;
+
+    --admin-text: #f4f8ff;
+    --admin-text-secondary: #a9bad0;
+    --admin-muted: #71859d;
+
+    --admin-border: rgba(63, 140, 255, 0.18);
+    --admin-border-hover: rgba(63, 140, 255, 0.40);
+
+    --admin-success: #27c47d;
+    --admin-danger: #ef5b68;
+    --admin-warning: #f5b942;
+
+    --admin-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+
+    min-height: 100%;
+
+    background: var(--admin-bg);
+
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--admin-text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 55%,
+            #020b18 100%
+        );
+
+}
+
+
+/* ==========================================================
+   PANEL
+========================================================== */
+
+.panel {
+
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 38px 0 50px;
+
+    animation:
+        adminPageEnter
+        0.45s
+        ease
+        both;
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.page-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+}
+
+.page-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+.heading-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1769e0,
+            #2f80ed
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 10px 25px rgba(23, 105, 224, 0.20);
+
+}
+
+.page-heading h1 {
+
+    margin: 0 0 5px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+}
+
+.page-heading p {
+
+    margin: 0;
+
+    color: var(--admin-text-secondary);
+
+    font-size: 15px;
+
+}
+
+
+/* ==========================================================
+   CREATE BUTTON
+========================================================== */
+
+.create-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 44px;
+
+    padding: 11px 17px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1769e0,
+            #2f80ed
+        );
+
+    border:
+        1px solid
+        rgba(63, 140, 255, 0.50);
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(23, 105, 224, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+.create-button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d73ee,
+            #3b8df5
+        );
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 11px 25px rgba(23, 105, 224, 0.25);
+
+}
+
+
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.table-card {
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 24, 44, 0.97),
+            rgba(6, 20, 38, 0.97)
+        );
+
+    border:
+        1px solid
+        var(--admin-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        var(--admin-shadow);
+
+}
+
+
+/* ==========================================================
+   TABLE HEADER
+========================================================== */
+
+.table-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 23px 25px;
+
+    border-bottom:
+        1px solid
+        rgba(63, 140, 255, 0.10);
+
+}
+
+.table-header h2 {
+
+    margin: 0 0 5px;
+
+    font-size: 18px;
+
+}
+
+.table-header p {
+
+    margin: 0;
+
+    color: var(--admin-muted);
+
+    font-size: 13px;
+
+}
+
+.gym-count {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    color: var(--admin-text-secondary);
+
+    background:
+        rgba(23, 105, 224, 0.09);
+
+    border:
+        1px solid
+        rgba(63, 140, 255, 0.14);
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 650;
+
+    white-space: nowrap;
+
+}
+
+.gym-count i {
+
+    color: var(--admin-blue-light);
+
+}
+
+
+/* ==========================================================
+   TABLE WRAPPER
+========================================================== */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+table {
+
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+}
+
+thead {
+
+    background:
+        rgba(2, 11, 24, 0.38);
+
+}
+
+th {
+
+    padding: 14px 20px;
+
+    color: var(--admin-muted);
+
+    text-align: left;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    white-space: nowrap;
+
+}
+
+td {
+
+    padding: 17px 20px;
+
+    border-top:
+        1px solid
+        rgba(63, 140, 255, 0.08);
+
+    vertical-align: middle;
+
+    font-size: 13px;
+
+}
+
+tbody tr {
+
+    transition:
+        background 0.2s ease;
+
+}
+
+tbody tr:hover {
+
+    background:
+        rgba(23, 105, 224, 0.045);
+
+}
+
+
+/* ==========================================================
+   GYM NAME
+========================================================== */
+
+.gym-name {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.gym-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: var(--admin-blue-light);
+
+    background:
+        rgba(23, 105, 224, 0.11);
+
+    border:
+        1px solid
+        rgba(63, 140, 255, 0.16);
+
+}
+
+.gym-name strong {
+
+    display: block;
+
+    max-width: 270px;
+
+    overflow: hidden;
+
+    color: var(--admin-text);
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+}
+
+.gym-name span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--admin-muted);
+
+    font-size: 11px;
+
+}
+
+
+/* ==========================================================
+   CITY
+========================================================== */
+
+.city {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-text-secondary);
+
+}
+
+.city i {
+
+    color: var(--admin-blue-light);
+
+    font-size: 12px;
+
+}
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+.status-badge.active {
+
+    color: var(--admin-success);
+
+    background:
+        rgba(39, 196, 125, 0.09);
+
+    border:
+        1px solid
+        rgba(39, 196, 125, 0.18);
+
+}
+
+.status-badge.inactive {
+
+    color: var(--admin-danger);
+
+    background:
+        rgba(239, 91, 104, 0.09);
+
+    border:
+        1px solid
+        rgba(239, 91, 104, 0.18);
+
+}
+
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.actions {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+}
+
+.action-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 36px;
+
+    padding: 8px 11px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+/* EDIT */
+
+.action-button.edit {
+
+    color: #dbeaff;
+
+    background:
+        rgba(23, 105, 224, 0.11);
+
+    border:
+        1px solid
+        rgba(63, 140, 255, 0.20);
+
+}
+
+.action-button.edit:hover {
+
+    background:
+        rgba(23, 105, 224, 0.18);
+
+    border-color:
+        rgba(63, 140, 255, 0.36);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* MONITOR */
+
+.action-button.monitor {
+
+    color: #dcecff;
+
+    background:
+        rgba(79, 134, 197, 0.10);
+
+    border:
+        1px solid
+        rgba(93, 153, 222, 0.20);
+
+}
+
+.action-button.monitor:hover {
+
+    background:
+        rgba(79, 134, 197, 0.17);
+
+    border-color:
+        rgba(93, 153, 222, 0.35);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* TOGGLE */
+
+.action-button.toggle {
+
+    color: #f8dfa0;
+
+    background:
+        rgba(245, 185, 66, 0.09);
+
+    border:
+        1px solid
+        rgba(245, 185, 66, 0.18);
+
+}
+
+.action-button.toggle:hover {
+
+    background:
+        rgba(245, 185, 66, 0.16);
+
+    border-color:
+        rgba(245, 185, 66, 0.32);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* DELETE */
+
+.action-button.delete {
+
+    color: #ffdfe3;
+
+    background:
+        rgba(239, 91, 104, 0.09);
+
+    border:
+        1px solid
+        rgba(239, 91, 104, 0.18);
+
+}
+
+.action-button.delete:hover {
+
+    background:
+        rgba(239, 91, 104, 0.17);
+
+    border-color:
+        rgba(239, 91, 104, 0.34);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-state {
+
+    padding: 65px 25px;
+
+    text-align: center;
+
+    background:
+        rgba(8, 24, 44, 0.78);
+
+    border:
+        1px solid
+        var(--admin-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        var(--admin-shadow);
+
+}
+
+.empty-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--admin-muted);
+
+    background:
+        rgba(23, 105, 224, 0.10);
+
+    border:
+        1px solid
+        var(--admin-border);
+
+    font-size: 25px;
+
+}
+
+.empty-state h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 20px;
+
+}
+
+.empty-state p {
+
+    margin: 0 0 22px;
+
+    color: var(--admin-muted);
+
+    font-size: 14px;
+
+}
+
+.empty-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1769e0,
+            #2f80ed
+        );
+
+    border:
+        1px solid
+        rgba(63, 140, 255, 0.40);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+.empty-button:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(23, 105, 224, 0.22);
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.page-footer {
+
+    margin-top: 24px;
+
+}
+
+.back-panel-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--admin-text-secondary);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+.back-panel-button:hover {
+
+    color: white;
+
+    transform: translateX(-2px);
+
+}
+
+
+/* ==========================================================
+   ENTRANCE ANIMATION
+========================================================== */
+
+@keyframes adminPageEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLET
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .panel {
+
+        width: min(100% - 32px, 1200px);
+
+        padding-top: 28px;
+
+    }
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+    .create-button {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .panel {
+
+        width: min(100% - 24px, 1200px);
+
+        padding-top: 22px;
+
+    }
+
+    .page-heading {
+
+        align-items: flex-start;
+
+    }
+
+    .heading-icon {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 19px;
+
+    }
+
+    .page-heading h1 {
+
+        font-size: 24px;
+
+    }
+
+    .page-heading p {
+
+        font-size: 13px;
+
+    }
+
+    .table-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+    }
+
+    .gym-count {
+
+        align-self: flex-start;
+
+    }
+
+    .table-card {
+
+        border-radius: 13px;
+
+    }
+
+    .action-button span {
+
+        display: none;
+
+    }
+
+    .action-button {
+
+        width: 35px;
+
+        height: 35px;
+
+        min-height: 35px;
+
+        padding: 0;
+
+    }
+
+    .actions {
+
+        gap: 5px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .panel {
+
+        width: min(100% - 18px, 1200px);
+
+    }
+
+    .page-heading h1 {
+
+        font-size: 21px;
+
+    }
+
+    .heading-icon {
+
+        width: 46px;
+
+        height: 46px;
+
+    }
+
+}

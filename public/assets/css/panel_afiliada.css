@@ -1,0 +1,1399 @@
+/* =========================================================
+   BODYTECH — PANEL DE AFILIADO
+   CSS EXCLUSIVO DE ESTA PÁGINA
+========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+    --af-primary: #2563eb;
+    --af-primary-dark: #1d4ed8;
+    --af-primary-soft: rgba(37, 99, 235, 0.12);
+
+    --af-success: #22c55e;
+    --af-warning: #f59e0b;
+    --af-danger: #ef4444;
+
+    --af-bg: #070b14;
+    --af-surface: #0f172a;
+    --af-surface-2: #111827;
+    --af-border: rgba(255, 255, 255, 0.09);
+
+    --af-text: #f8fafc;
+    --af-text-soft: #cbd5e1;
+    --af-text-muted: #94a3b8;
+
+    --af-radius-lg: 28px;
+    --af-radius-md: 20px;
+    --af-radius-sm: 14px;
+
+    --af-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+    --af-transition:
+        0.25s ease;
+}
+
+
+/* =========================================================
+   2. BASE
+========================================================= */
+
+.afiliado-page {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #070b14 0%,
+            #0a1020 100%
+        );
+
+    color: var(--af-text);
+
+    font-family:
+        "Poppins",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   3. BOTÓN PRINCIPAL
+========================================================= */
+
+.afiliado-primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 50px;
+
+    padding: 0 24px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--af-primary),
+            var(--af-primary-dark)
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.28);
+
+    transition:
+        transform var(--af-transition),
+        box-shadow var(--af-transition);
+}
+
+.afiliado-primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(37, 99, 235, 0.38);
+}
+
+
+/* =========================================================
+   4. ACCESO SIN SESIÓN
+========================================================= */
+
+.afiliado-login-main,
+.afiliado-empty-main,
+.afiliado-inactive-main {
+    min-height: calc(100vh - 140px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 24px;
+}
+
+.afiliado-login-card,
+.afiliado-empty-card,
+.afiliado-inactive-card {
+    width: min(560px, 100%);
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 24, 39, 0.97),
+            rgba(10, 15, 27, 0.97)
+        );
+
+    border: 1px solid var(--af-border);
+
+    border-radius: var(--af-radius-lg);
+
+    box-shadow: var(--af-shadow);
+
+    backdrop-filter: blur(14px);
+}
+
+.afiliado-login-icon,
+.afiliado-empty-icon,
+.afiliado-inactive-icon {
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--af-primary-soft);
+
+    color: #60a5fa;
+
+    font-size: 30px;
+}
+
+.afiliado-login-label,
+.afiliado-empty-label,
+.afiliado-inactive-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #60a5fa;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.afiliado-login-card h1,
+.afiliado-empty-card h1,
+.afiliado-inactive-card h1 {
+    margin: 0 0 16px;
+
+    color: #ffffff;
+
+    font-size: clamp(26px, 4vw, 36px);
+
+    font-weight: 800;
+}
+
+.afiliado-login-card p,
+.afiliado-empty-card p,
+.afiliado-inactive-card p {
+    margin: 0 auto 28px;
+
+    max-width: 470px;
+
+    color: var(--af-text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   5. ESTADO INACTIVO
+========================================================= */
+
+.afiliado-inactive-card {
+    border-color:
+        rgba(245, 158, 11, 0.25);
+}
+
+.afiliado-inactive-icon {
+    background:
+        rgba(245, 158, 11, 0.12);
+
+    color: #fbbf24;
+}
+
+
+/* =========================================================
+   6. DASHBOARD PRINCIPAL
+========================================================= */
+
+.afiliado-dashboard {
+    position: relative;
+
+    min-height: calc(100vh - 100px);
+
+    padding:
+        70px
+        clamp(20px, 4vw, 70px)
+        90px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   7. FONDO
+========================================================= */
+
+.afiliado-dashboard-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.afiliado-dashboard-background img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.13;
+
+    filter:
+        saturate(0.8)
+        contrast(1.1);
+}
+
+.afiliado-dashboard-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(37, 99, 235, 0.13),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(7, 11, 20, 0.86),
+            rgba(7, 11, 20, 0.97)
+        );
+}
+
+
+/* =========================================================
+   8. CONTENEDOR PRINCIPAL
+========================================================= */
+
+.afiliado-dashboard-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1450px, 100%);
+
+    margin: 0 auto;
+
+    padding: clamp(24px, 4vw, 55px);
+
+    background:
+        rgba(8, 13, 24, 0.82);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        32px;
+
+    box-shadow:
+        0 35px 90px
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   9. ESTADO DE MEMBRESÍA
+========================================================= */
+
+.afiliado-membership-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px 25px;
+
+    margin-bottom: 38px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(34, 197, 94, 0.06);
+
+    border:
+        1px solid
+        rgba(34, 197, 94, 0.18);
+}
+
+.afiliado-status-icon {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(34, 197, 94, 0.12);
+
+    color: var(--af-success);
+
+    font-size: 22px;
+}
+
+.afiliado-status-content {
+    min-width: 0;
+}
+
+.afiliado-status-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--af-text-muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.afiliado-status-content h3 {
+    margin: 0 0 5px;
+
+    color: var(--af-success);
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.afiliado-status-content p {
+    margin: 0;
+
+    color: var(--af-text-soft);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   10. ENCABEZADO
+========================================================= */
+
+.afiliado-dashboard-header {
+    text-align: center;
+
+    max-width: 850px;
+
+    margin:
+        0 auto
+        55px;
+}
+
+.afiliado-brand-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--af-primary),
+            #3b82f6
+        );
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(37, 99, 235, 0.30);
+}
+
+.afiliado-brand-name {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+.afiliado-brand-subtitle {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #60a5fa;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+.afiliado-dashboard-header h1 {
+    margin:
+        18px
+        0
+        12px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(32px, 5vw, 52px);
+
+    line-height: 1.1;
+
+    font-weight: 900;
+}
+
+.afiliado-dashboard-header p {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: var(--af-text-muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   11. RESUMEN — DOS TARJETAS
+========================================================= */
+
+.afiliado-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(320px, 0.75fr);
+
+    gap: 28px;
+
+    width: 100%;
+
+    margin-bottom: 65px;
+}
+
+
+/* =========================================================
+   12. TARJETAS BASE
+========================================================= */
+
+.afiliado-gym-card,
+.afiliado-membership-card {
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 360px;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    border-radius:
+        var(--af-radius-lg);
+
+    border:
+        1px solid
+        var(--af-border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(10, 15, 27, 0.98)
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform var(--af-transition),
+        border-color var(--af-transition),
+        box-shadow var(--af-transition);
+}
+
+.afiliado-gym-card {
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+.afiliado-gym-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(59, 130, 246, 0.38);
+
+    box-shadow:
+        0 28px 60px
+        rgba(0, 0, 0, 0.38);
+}
+
+.afiliado-membership-card:hover {
+    border-color:
+        rgba(59, 130, 246, 0.25);
+}
+
+
+/* =========================================================
+   13. ENCABEZADO DE TARJETAS
+========================================================= */
+
+.afiliado-card-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+.afiliado-card-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(37, 99, 235, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 20px;
+}
+
+.afiliado-card-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #60a5fa;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+.afiliado-card-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   14. GIMNASIO — INFORMACIÓN + IMAGEN
+========================================================= */
+
+.afiliado-gym-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 390px);
+
+    align-items: center;
+
+    gap: 45px;
+
+    min-height: 235px;
+}
+
+.afiliado-gym-information {
+    min-width: 0;
+}
+
+.afiliado-gym-information h3 {
+    margin:
+        0
+        0
+        16px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(22px, 2.4vw, 31px);
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    overflow-wrap: anywhere;
+}
+
+.afiliado-gym-information p {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin: 0 0 25px;
+
+    color: var(--af-text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.afiliado-gym-information p i {
+    margin-top: 4px;
+
+    color: #60a5fa;
+
+    flex-shrink: 0;
+}
+
+.afiliado-gym-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #60a5fa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.afiliado-gym-link i {
+    transition:
+        transform var(--af-transition);
+}
+
+.afiliado-gym-card:hover
+.afiliado-gym-link i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   15. CARRUSEL DEL GIMNASIO
+========================================================= */
+
+.afiliado-gym-carousel {
+    position: relative;
+
+    width: 100%;
+
+    height: 220px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        #050914;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0, 0, 0, 0.35);
+}
+
+.afiliado-gym-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0;
+
+    transform: scale(1.02);
+
+    transition:
+        opacity 0.7s ease,
+        transform 7s ease;
+}
+
+.afiliado-gym-image.active {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   16. INDICADOR DE IMÁGENES
+========================================================= */
+
+.afiliado-carousel-indicator {
+    position: absolute;
+
+    right: 14px;
+    bottom: 14px;
+
+    z-index: 5;
+
+    padding:
+        7px
+        11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================================================
+   17. PLACEHOLDER SIN IMAGEN
+========================================================= */
+
+.afiliado-gym-placeholder {
+    width: 100%;
+    height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827,
+            #0b1220
+        );
+
+    border:
+        1px solid
+        var(--af-border);
+
+    color: var(--af-text-muted);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.afiliado-gym-placeholder i {
+    color: #3b82f6;
+
+    font-size: 34px;
+}
+
+
+/* =========================================================
+   18. MEMBRESÍA
+========================================================= */
+
+.afiliado-membership-card {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.afiliado-membership-details {
+    margin-top: auto;
+
+    padding-top: 30px;
+}
+
+.afiliado-membership-type {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 38px;
+
+    padding:
+        0
+        15px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(37, 99, 235, 0.11);
+
+    border:
+        1px solid
+        rgba(59, 130, 246, 0.16);
+
+    color: #93c5fd;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.afiliado-membership-price {
+    margin-top: 22px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.afiliado-membership-price span {
+    color: #60a5fa;
+
+    font-size: 22px;
+
+    vertical-align: top;
+}
+
+.afiliado-membership-price small {
+    margin-left: 5px;
+
+    color: var(--af-text-muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   19. ACCIONES
+========================================================= */
+
+.afiliado-actions-section {
+    width: 100%;
+}
+
+.afiliado-section-heading {
+    margin-bottom: 24px;
+}
+
+.afiliado-section-heading span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #60a5fa;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.afiliado-section-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   20. GRID DE ACCIONES
+========================================================= */
+
+.afiliado-actions-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   21. TARJETAS DE ACCIONES
+========================================================= */
+
+.afiliado-action-card,
+.afiliado-danger-card {
+    width: 100%;
+
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(17, 24, 39, 0.9);
+
+    border:
+        1px solid
+        var(--af-border);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--af-transition),
+        border-color var(--af-transition),
+        background var(--af-transition);
+}
+
+.afiliado-action-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(59, 130, 246, 0.35);
+
+    background:
+        rgba(22, 32, 51, 0.95);
+}
+
+.afiliado-action-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(37, 99, 235, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 18px;
+}
+
+.afiliado-action-text {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+}
+
+.afiliado-action-text strong {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+.afiliado-action-text span {
+    color: var(--af-text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.afiliado-action-arrow {
+    color: #64748b;
+
+    flex-shrink: 0;
+
+    transition:
+        transform var(--af-transition),
+        color var(--af-transition);
+}
+
+.afiliado-action-card:hover
+.afiliado-action-arrow {
+    color: #60a5fa;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   22. CANCELAR MEMBRESÍA
+========================================================= */
+
+.afiliado-cancel-form {
+    margin: 0;
+
+    width: 100%;
+}
+
+.afiliado-danger-card {
+    border-color:
+        rgba(239, 68, 68, 0.14);
+
+    background:
+        rgba(127, 29, 29, 0.08);
+
+    font-family: inherit;
+}
+
+.afiliado-danger-card
+.afiliado-action-icon {
+    background:
+        rgba(239, 68, 68, 0.11);
+
+    color: #f87171;
+}
+
+.afiliado-danger-card:hover {
+    border-color:
+        rgba(239, 68, 68, 0.35);
+
+    background:
+        rgba(127, 29, 29, 0.15);
+}
+
+.afiliado-danger-card:hover
+.afiliado-action-arrow {
+    color: #f87171;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   23. TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .afiliado-summary-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .afiliado-gym-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            340px;
+    }
+
+    .afiliado-actions-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   24. TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .afiliado-dashboard {
+        padding:
+            35px
+            16px
+            55px;
+    }
+
+    .afiliado-dashboard-card {
+        padding: 24px 18px;
+
+        border-radius: 24px;
+    }
+
+    .afiliado-gym-layout {
+        grid-template-columns:
+            1fr;
+
+        gap: 28px;
+    }
+
+    .afiliado-gym-carousel,
+    .afiliado-gym-placeholder {
+        height: 240px;
+    }
+
+    .afiliado-actions-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* =========================================================
+   25. MÓVIL
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .afiliado-login-main,
+    .afiliado-empty-main,
+    .afiliado-inactive-main {
+        padding:
+            45px
+            15px;
+    }
+
+    .afiliado-login-card,
+    .afiliado-empty-card,
+    .afiliado-inactive-card {
+        padding:
+            38px
+            22px;
+
+        border-radius: 22px;
+    }
+
+    .afiliado-dashboard {
+        padding:
+            20px
+            10px
+            40px;
+    }
+
+    .afiliado-dashboard-card {
+        padding:
+            18px
+            13px;
+
+        border-radius: 20px;
+    }
+
+    .afiliado-membership-status {
+        align-items: flex-start;
+
+        gap: 13px;
+
+        padding: 17px;
+
+        margin-bottom: 28px;
+    }
+
+    .afiliado-status-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+
+        font-size: 18px;
+    }
+
+    .afiliado-dashboard-header {
+        margin-bottom: 35px;
+    }
+
+    .afiliado-brand-icon {
+        width: 60px;
+        height: 60px;
+
+        border-radius: 18px;
+    }
+
+    .afiliado-dashboard-header h1 {
+        font-size: 30px;
+    }
+
+    .afiliado-dashboard-header p {
+        font-size: 13px;
+    }
+
+    .afiliado-gym-card,
+    .afiliado-membership-card {
+        min-height: 0;
+
+        padding: 22px;
+
+        border-radius: 22px;
+    }
+
+    .afiliado-card-heading {
+        gap: 12px;
+
+        margin-bottom: 24px;
+    }
+
+    .afiliado-card-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+    }
+
+    .afiliado-gym-information h3 {
+        font-size: 22px;
+    }
+
+    .afiliado-gym-carousel,
+    .afiliado-gym-placeholder {
+        height: 200px;
+
+        border-radius: 18px;
+    }
+
+    .afiliado-membership-price {
+        font-size: 38px;
+    }
+
+    .afiliado-action-card,
+    .afiliado-danger-card {
+        min-height: 90px;
+
+        padding: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   26. REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .afiliado-gym-card,
+    .afiliado-action-card,
+    .afiliado-primary-button {
+        transition: none;
+    }
+
+    .afiliado-gym-image {
+        transition: opacity 0.3s ease;
+        transform: none;
+    }
+
+}

@@ -1,0 +1,1353 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#000;
+
+    overflow-x:hidden;
+
+}
+
+/*==========================================================
+    PÁGINA
+==========================================================*/
+
+.afiliacion-page{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+    overflow:hidden;
+
+}
+
+/*==========================================================
+    VIDEO
+==========================================================*/
+
+.background-video{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-3;
+
+    filter:
+        brightness(.45)
+        saturate(1.15);
+
+}
+
+.video-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+
+        radial-gradient(circle at top right,
+            rgba(37,99,235,.22),
+            transparent 35%),
+
+        radial-gradient(circle at bottom left,
+            rgba(59,130,246,.18),
+            transparent 35%),
+
+        rgba(0,0,0,.55);
+
+    backdrop-filter:blur(2px);
+
+}
+
+/*==========================================================
+    TARJETA
+==========================================================*/
+
+.afiliacion-card{
+
+    width:100%;
+
+    max-width:700px;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    background:rgba(15,23,42,.72);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+        0 25px 80px rgba(0,0,0,.45);
+
+    position:relative;
+
+    z-index:10;
+    overflow:hidden;
+
+}
+
+.afiliacion-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent,
+
+            rgba(255,255,255,.04),
+
+            transparent
+
+        );
+
+    pointer-events:none;
+
+    background-size:250% 250%;
+
+    animation:cardGlow 12s linear infinite;
+
+}
+/*==========================================================
+    HEADER
+==========================================================*/
+
+.afiliacion-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.logo-circle{
+
+    width:82px;
+
+    height:82px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color:#FFF;
+
+    font-size:2rem;
+
+    box-shadow:
+        0 10px 35px rgba(37,99,235,.35);
+
+}
+
+.afiliacion-header h1{
+
+    letter-spacing:.8px;
+
+    text-shadow:
+
+    0 5px 18px rgba(0,0,0,.35);
+
+    color:#FFF;
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    letter-spacing:.5px;
+
+}
+
+.brand{
+
+    display:block;
+
+    color:#60A5FA;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.afiliacion-header h2{
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+    color:#FFF;
+
+    font-size:1.6rem;
+
+    margin-bottom:10px;
+
+}
+
+.afiliacion-header p{
+    max-width:480px;
+
+    margin:auto;
+
+    font-size:.98rem;
+
+    color:rgba(255,255,255,.75);
+
+    line-height:1.7;
+
+    max-width:520px;
+
+    margin:auto;
+
+}
+/*==========================================================
+    STEP PROGRESS PREMIUM
+==========================================================*/
+
+.step-progress{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:40px 0 45px;
+
+    user-select:none;
+
+}
+
+.step{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:#CBD5E1;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.04)
+        );
+
+    border:2px solid rgba(255,255,255,.10);
+
+    transition:.35s;
+
+}
+
+.step.active{
+
+    color:#FFF;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #3B82F6
+        );
+
+    border-color:#60A5FA;
+
+    box-shadow:
+
+        0 0 0 6px rgba(37,99,235,.15),
+
+        0 0 28px rgba(37,99,235,.55),
+
+        0 15px 30px rgba(37,99,235,.35);
+
+}
+
+.step.completed{
+
+    color:#FFF;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1D4ED8,
+            #2563EB
+        );
+
+    border-color:#3B82F6;
+
+}
+
+.line{
+
+    position:relative;
+
+    width:78px;
+
+    height:5px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.line::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #2563EB,
+            #60A5FA
+        );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.45s;
+
+}
+
+.line.active::before{
+
+    transform:scaleX(1);
+
+}
+.step::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-6px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+.step:hover{
+
+    transform:translateY(-3px);
+
+}
+/*==========================================================
+    FORMULARIO
+==========================================================*/
+
+.afiliacion-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.form-label{
+
+    color:#F8FAFC;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+}
+
+/*==========================================================
+    SELECTS
+==========================================================*/
+
+.input-container{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    height:60px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    transition:.30s;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+.input-container:hover{
+
+    border-color:rgba(96,165,250,.45);
+
+    background:rgba(255,255,255,.11);
+
+}
+
+.input-container:focus-within{
+
+    border-color:#3B82F6;
+
+    background:rgba(255,255,255,.13);
+
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,.18);
+
+}
+
+.input-icon{
+
+    width:58px;
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    font-size:1rem;
+
+    transition:.30s;
+
+    pointer-events:none;
+
+}
+
+.input-container:focus-within .input-icon{
+
+    color:#60A5FA;
+
+}
+
+.input-field{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#FFF;
+
+    font-size:1rem;
+
+    padding:0 55px 0 62px;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+}
+
+.input-field option{
+
+    color:#111827;
+
+    background:#FFF;
+
+}
+
+.input-field:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+}
+
+/* Flecha */
+
+.input-container::after{
+
+    content:"\f078";
+
+    font-family:"Font Awesome 6 Free";
+
+    font-weight:900;
+
+    position:absolute;
+
+    right:20px;
+
+    color:#94A3B8;
+
+    pointer-events:none;
+
+    transition:.30s;
+
+}
+
+.input-container:focus-within::after{
+
+    color:#60A5FA;
+
+}
+/*==========================================================
+    BOTÓN CONTINUAR
+==========================================================*/
+
+.next-btn{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    color:#FFF;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    box-shadow:
+
+        0 12px 35px rgba(37,99,235,.35);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+
+}
+
+.next-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 18px 45px rgba(37,99,235,.45);
+
+}
+
+.next-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.next-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.35),
+
+            transparent
+
+        );
+
+    transition:.75s;
+
+}
+
+.next-btn:hover::before{
+
+    left:140%;
+
+}
+/*==========================================================
+    VOLVER
+==========================================================*/
+
+.back-home{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:28px;
+
+}
+
+.back-home a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    color:#CBD5E1;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.back-home a:hover{
+
+    color:#60A5FA;
+
+    background:rgba(59,130,246,.10);
+
+    transform:translateX(-4px);
+
+}
+
+.back-home i{
+
+    transition:.30s;
+
+}
+
+.back-home a:hover i{
+
+    transform:translateX(-4px);
+
+}
+/*==========================================================
+    ANIMACIONES
+==========================================================*/
+
+@keyframes cardAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+            translateY(35px)
+
+            scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translateY(0)
+
+            scale(1);
+
+    }
+
+}
+
+.afiliacion-card{
+
+    animation:
+
+        cardAppear
+
+        .8s
+
+        ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.afiliacion-header{
+
+    animation:
+
+        fadeUp
+
+        .7s
+
+        ease;
+
+}
+
+.step-progress{
+
+    animation:
+
+        fadeUp
+
+        .9s
+
+        ease;
+
+}
+
+.form-group:nth-child(1){
+
+    animation:
+
+        fadeUp
+
+        .95s
+
+        ease;
+
+}
+
+.form-group:nth-child(2){
+
+    animation:
+
+        fadeUp
+
+        1.05s
+
+        ease;
+
+}
+
+.form-group:nth-child(3){
+
+    animation:
+
+        fadeUp
+
+        1.15s
+
+        ease;
+
+}
+
+.next-btn{
+
+    animation:
+
+        fadeUp
+
+        1.3s
+
+        ease;
+
+}
+
+.back-home{
+
+    animation:
+
+        fadeUp
+
+        1.45s
+
+        ease;
+
+}
+/*==========================================================
+    SELECTS PREMIUM
+==========================================================*/
+
+select{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+    select.input-field{
+
+    padding-right:60px;
+
+} 
+
+}
+.select-arrow{
+
+    position:absolute;
+
+    right:22px;
+
+    color:#94A3B8;
+
+    pointer-events:none;
+
+    transition:.30s;
+
+}
+
+.input-container:hover .select-arrow{
+
+    color:#60A5FA;
+
+}
+@keyframes cardGlow{
+
+    from{
+
+        background-position:0%;
+
+    }
+
+    to{
+
+        background-position:250%;
+
+    }
+
+}
+.logo-circle{
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+}
+.logo-circle:hover{
+
+    transform:
+
+        rotate(8deg)
+
+        scale(1.08);
+
+    box-shadow:
+
+        0 20px 45px rgba(37,99,235,.45);
+
+}
+/*==========================================================
+    MEMBRESÍAS
+==========================================================*/
+
+.membership-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+.membership-card{
+
+    display:block;
+
+    position:relative;
+
+    cursor:pointer;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.05);
+
+    transition:
+        transform .30s,
+        border-color .30s,
+        box-shadow .30s,
+        background .30s;
+
+}
+
+.membership-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#60A5FA;
+
+    background:rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 18px 45px rgba(37,99,235,.18);
+
+}
+.membership-card input[type="radio"]{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+.membership-body{
+
+    padding:26px;
+
+}
+.membership-body h3{
+
+    color:#FFF;
+
+    font-size:1.25rem;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+.membership-price{
+
+    color:#60A5FA;
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+}
+
+.membership-price small{
+
+    color:#CBD5E1;
+
+    font-size:.9rem;
+
+}
+.membership-body p{
+
+    color:rgba(255,255,255,.78);
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+.membership-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
+
+    text-transform:uppercase;
+
+    color:#FFF;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    box-shadow:
+        0 8px 18px rgba(37,99,235,.35);
+
+    margin-bottom:18px;
+
+}
+.membership-body ul{
+
+    margin-top:22px;
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+.membership-body li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:rgba(255,255,255,.78);
+
+    font-size:.93rem;
+
+    line-height:1.5;
+
+}
+.membership-body li i{
+
+    color:#60A5FA;
+
+    font-size:.92rem;
+
+    width:18px;
+
+    text-align:center;
+
+}
+.membership-price{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#60A5FA;
+
+    margin:16px 0;
+
+    text-shadow:
+
+        0 0 20px rgba(59,130,246,.15);
+
+}
+.membership-price small{
+
+    font-size:.95rem;
+
+    color:rgba(255,255,255,.70);
+
+    font-weight:600;
+
+}
+.membership-body p{
+
+    color:rgba(255,255,255,.72);
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+/*==========================================================
+    GYM SELECCIONADO
+==========================================================*/
+
+.gym-selected{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin:28px 0 35px;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    transition:.30s;
+
+}
+
+.gym-selected:hover{
+
+    border-color:rgba(96,165,250,.35);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.gym-selected-icon{
+
+    width:58px;
+
+    height:58px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color:#FFF;
+
+    font-size:1.2rem;
+
+    box-shadow:
+
+        0 10px 28px rgba(37,99,235,.35);
+
+}
+
+.gym-selected-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.gym-selected-info strong{
+
+    color:#FFF;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+}
+
+.gym-selected-info span{
+
+    color:rgba(255,255,255,.70);
+
+    font-size:.92rem;
+
+    letter-spacing:.2px;
+
+}
+/*==========================================================
+    PLAN SELECCIONADO
+==========================================================*/
+
+.membership-card{
+
+    cursor:pointer;
+
+    transition:
+        transform .30s,
+        border-color .30s,
+        box-shadow .30s,
+        background .30s;
+
+}
+
+.membership-card input{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.membership-card input:checked + .membership-body{
+
+    border-color:#3B82F6;
+
+    background:rgba(37,99,235,.12);
+
+    box-shadow:
+
+        0 0 0 2px rgba(59,130,246,.25),
+
+        0 18px 40px rgba(37,99,235,.30);
+
+    transform:translateY(-4px);
+
+}
+
+.membership-card input:checked + .membership-body h3{
+
+    color:#FFFFFF;
+
+}
+
+.membership-card input:checked + .membership-body .membership-price{
+
+    color:#60A5FA;
+
+}
+
+.membership-card input:checked + .membership-body::before{
+
+    opacity:1;
+
+}

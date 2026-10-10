@@ -1,0 +1,1028 @@
+
+/* ==========================================================
+   BODYTECH — AUTENTICACIÓN EN DOS PASOS
+   Diseño profesional oscuro / azul
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --twofa-bg:
+        #020b18;
+
+    --twofa-bg-secondary:
+        #061426;
+
+    --twofa-card:
+        rgba(7, 20, 38, 0.96);
+
+    --twofa-card-border:
+        rgba(45, 129, 255, 0.22);
+
+    --twofa-blue:
+        #1769e0;
+
+    --twofa-blue-dark:
+        #0d4fae;
+
+    --twofa-blue-light:
+        #3f8cff;
+
+    --twofa-text:
+        #f4f8ff;
+
+    --twofa-text-secondary:
+        #a9bad0;
+
+    --twofa-muted:
+        #71859d;
+
+    --twofa-success:
+        #27c47d;
+
+    --twofa-warning:
+        #f0b84b;
+
+    --twofa-danger:
+        #ef5b68;
+
+    --twofa-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+    --twofa-glow:
+        0 0 30px rgba(23, 105, 224, 0.10);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ==========================================================
+   FONDO GENERAL — AZUL OSCURO BODYTECH
+========================================================== */
+
+html {
+
+    min-height:
+        100%;
+
+    background:
+        #020b18 !important;
+
+}
+
+
+body {
+
+    margin:
+        0;
+
+    min-height:
+        100vh;
+
+    color:
+        var(--twofa-text);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        #020b18 !important;
+
+    position:
+        relative;
+
+}
+
+
+/* ==========================================================
+   FONDO AZUL OSCURO PROFUNDO
+========================================================== */
+
+body {
+
+    background:
+        linear-gradient(
+            180deg,
+            #020b18 0%,
+            #03101f 45%,
+            #020b18 100%
+        ) !important;
+
+}
+
+
+/* ==========================================================
+   EVITAR FONDOS HEREDADOS
+========================================================== */
+
+.account-container {
+
+    background:
+        transparent !important;
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR PRINCIPAL
+========================================================== */
+
+.account-container {
+
+    width:
+        100%;
+
+    max-width:
+        1100px;
+
+    margin:
+        0 auto;
+
+    padding:
+        55px
+        30px
+        80px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        flex-start;
+
+    animation:
+        twofaPageEnter
+        0.7s
+        ease
+        both;
+
+}
+
+
+/* ==========================================================
+   TARJETA PRINCIPAL
+========================================================== */
+
+.account-content {
+
+    width:
+        100%;
+
+    max-width:
+        760px;
+
+    padding:
+        42px
+        46px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9, 27, 49, 0.97),
+            rgba(4, 16, 31, 0.97)
+        );
+
+    border:
+        1px solid
+        var(--twofa-card-border);
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        var(--twofa-shadow),
+        var(--twofa-glow);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    animation:
+        twofaCardEnter
+        0.75s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+
+}
+
+
+/* ==========================================================
+   BRILLO SUPERIOR
+========================================================== */
+
+.account-content::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(63, 140, 255, 0.85),
+            transparent
+        );
+
+    opacity:
+        0.8;
+
+}
+
+
+/* ==========================================================
+   BRILLO LATERAL
+========================================================== */
+
+.account-content::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    top:
+        -100px;
+
+    right:
+        -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(23, 105, 224, 0.13),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ==========================================================
+   TITULO
+========================================================== */
+
+.account-content h1 {
+
+    margin:
+        0
+        0
+        12px;
+
+    color:
+        var(--twofa-text);
+
+    font-size:
+        0;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.5px;
+
+}
+
+
+/* ==========================================================
+   ICONO PROFESIONAL
+========================================================== */
+
+.account-content h1::before {
+
+    content:
+        "\f3ed";
+
+    font-family:
+        "Font Awesome 6 Free";
+
+    font-weight:
+        900;
+
+    font-size:
+        29px;
+
+    color:
+        var(--twofa-blue-light);
+
+    margin-right:
+        12px;
+
+    vertical-align:
+        middle;
+
+}
+
+
+/* ==========================================================
+   TEXTO DEL TITULO
+========================================================== */
+
+.account-content h1::after {
+
+    content:
+        "Autenticación en dos pasos";
+
+    font-size:
+        clamp(26px, 3vw, 34px);
+
+    color:
+        var(--twofa-text);
+
+    vertical-align:
+        middle;
+
+}
+
+
+/* ==========================================================
+   DESCRIPCIÓN PRINCIPAL
+========================================================== */
+
+.account-content > p {
+
+    margin:
+        0
+        0
+        25px;
+
+    color:
+        var(--twofa-text-secondary);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* ==========================================================
+   SEPARADORES
+========================================================== */
+
+.account-content hr {
+
+    border:
+        0;
+
+    border-top:
+        1px solid
+        rgba(85, 133, 190, 0.18);
+
+    margin:
+        28px
+        0;
+
+}
+
+
+/* ==========================================================
+   SUBTÍTULOS
+========================================================== */
+
+.account-content h3 {
+
+    margin:
+        0
+        0
+        14px;
+
+    color:
+        #e7f0fc;
+
+    font-size:
+        17px;
+
+    font-weight:
+        700;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+/* ==========================================================
+   ICONOS PROFESIONALES DE SUBTÍTULOS
+========================================================== */
+
+.account-content h3 {
+
+    font-size:
+        0;
+
+}
+
+
+.account-content h3:nth-of-type(1)::before {
+
+    content:
+        "\f3ed";
+
+    font-family:
+        "Font Awesome 6 Free";
+
+    font-weight:
+        900;
+
+    font-size:
+        17px;
+
+    color:
+        var(--twofa-blue-light);
+
+}
+
+
+.account-content h3:nth-of-type(1)::after {
+
+    content:
+        "Estado actual";
+
+    font-size:
+        17px;
+
+    color:
+        #e7f0fc;
+
+}
+
+
+/* ==========================================================
+   ESTADOS GENERALES
+========================================================== */
+
+.account-content strong {
+
+    font-weight:
+        700;
+
+}
+
+
+/* ==========================================================
+   ESTADO ACTIVADO
+========================================================== */
+
+.account-content > p strong {
+
+    color:
+        var(--twofa-success);
+
+}
+
+
+/* ==========================================================
+   TEXTO DEL MÉTODO
+========================================================== */
+
+.account-content p strong {
+
+    color:
+        var(--twofa-text);
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR DE OPCIONES
+========================================================== */
+
+.account-options {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        16px;
+
+    margin-top:
+        24px;
+
+}
+
+
+/* ==========================================================
+   OPCIONES DE AUTENTICACIÓN
+========================================================== */
+
+.account-option {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    width:
+        100%;
+
+    min-height:
+        56px;
+
+    padding:
+        15px
+        20px;
+
+    background:
+        rgba(6, 22, 42, 0.88);
+
+    border:
+        1px solid
+        rgba(45, 129, 255, 0.20);
+
+    border-radius:
+        12px;
+
+    color:
+        #dceaff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        0 8px 24px
+        rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ==========================================================
+   ICONOS PROFESIONALES — OPCIONES
+========================================================== */
+
+.account-option {
+
+    font-size:
+        0;
+
+}
+
+
+.account-option::before {
+
+    font-family:
+        "Font Awesome 6 Free";
+
+    font-weight:
+        900;
+
+    font-size:
+        16px;
+
+    color:
+        var(--twofa-blue-light);
+
+    width:
+        25px;
+
+    margin-right:
+        10px;
+
+    text-align:
+        center;
+
+}
+
+
+.account-option[href*="metodo=email"]::before {
+
+    content:
+        "\f0e0";
+
+}
+
+
+.account-option[href*="metodo=authenticator"]::before {
+
+    content:
+        "\f3cd";
+
+}
+
+
+.account-option[href*="subir_verificacion"]::before {
+
+    content:
+        "\f2bb";
+
+}
+
+
+/* ==========================================================
+   TEXTO DE LAS OPCIONES
+========================================================== */
+
+.account-option[href*="metodo=email"]::after {
+
+    content:
+        "Activar mediante correo electrónico";
+
+    font-size:
+        14px;
+
+    color:
+        #dceaff;
+
+}
+
+
+.account-option[href*="metodo=authenticator"]::after {
+
+    content:
+        "Activar Google Authenticator";
+
+    font-size:
+        14px;
+
+    color:
+        #dceaff;
+
+}
+
+
+/* ==========================================================
+   HOVER OPCIONES
+========================================================== */
+
+.account-option:hover {
+
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(12, 40, 74, 0.96);
+
+    border-color:
+        rgba(63, 140, 255, 0.50);
+
+    box-shadow:
+        0 12px 30px
+        rgba(23, 105, 224, 0.16);
+
+}
+
+
+/* ==========================================================
+   BOTÓN DESACTIVAR
+========================================================== */
+
+.edit-profile-btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        50px;
+
+    padding:
+        13px
+        22px;
+
+    margin-top:
+        12px;
+
+    border:
+        1px solid
+        rgba(239, 91, 104, 0.28);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(75, 20, 28, 0.65);
+
+    color:
+        #ffdce0;
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ==========================================================
+   ICONO BOTÓN DESACTIVAR
+========================================================== */
+
+.edit-profile-btn {
+
+    font-size:
+        0;
+
+}
+
+
+.edit-profile-btn::before {
+
+    content:
+        "\f023";
+
+    font-family:
+        "Font Awesome 6 Free";
+
+    font-weight:
+        900;
+
+    font-size:
+        15px;
+
+    margin-right:
+        9px;
+
+}
+
+
+.edit-profile-btn::after {
+
+    content:
+        "Desactivar autenticación";
+
+    font-size:
+        14px;
+
+}
+
+
+/* ==========================================================
+   HOVER DESACTIVAR
+========================================================== */
+
+.edit-profile-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(110, 28, 39, 0.85);
+
+    border-color:
+        rgba(239, 91, 104, 0.55);
+
+    box-shadow:
+        0 12px 30px
+        rgba(239, 91, 104, 0.14);
+
+}
+
+
+/* ==========================================================
+   ESTADO DESACTIVADO
+========================================================== */
+
+.account-content > p strong {
+
+    transition:
+        color 0.25s ease;
+
+}
+
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+@keyframes twofaPageEnter {
+
+    from {
+
+        opacity:
+            0;
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+    }
+
+}
+
+
+@keyframes twofaCardEnter {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px)
+            scale(0.985);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .account-container {
+
+        padding:
+            35px
+            18px
+            60px;
+
+    }
+
+
+    .account-content {
+
+        padding:
+            30px
+            24px;
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .account-content h1::before {
+
+        font-size:
+            24px;
+
+    }
+
+
+    .account-content h1::after {
+
+        font-size:
+            26px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .account-container {
+
+        padding:
+            25px
+            12px
+            45px;
+
+    }
+
+
+    .account-content {
+
+        padding:
+            25px
+            18px;
+
+        border-radius:
+            16px;
+
+    }
+
+
+    .account-option {
+
+        min-height:
+            52px;
+
+        padding:
+            13px
+            16px;
+
+    }
+
+
+    .account-option::after {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .edit-profile-btn {
+
+        width:
+            100%;
+
+    }
+
+}

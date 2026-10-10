@@ -1,0 +1,265 @@
+/* ==========================================================
+   BODYTECH UI SYSTEM
+   Variables Globales
+   Autor: BodyTech Project
+   ========================================================== */
+/* Z-Index */
+
+:root{
+
+    /*======================================================
+        PALETA PRINCIPAL
+    ======================================================*/
+    --z-video: -2;
+    --z-overlay: -1;
+    --z-content: 1;
+    --z-dropdown: 1000;
+    --z-modal: 2000;
+    --font-family: 'Poppins', sans-serif;
+    --font-size-sm: .875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
+    --font-size-hero: 3rem;
+
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-light: #60A5FA;
+
+    --secondary: #0F172A;
+
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+
+    --white: #FFFFFF;
+    --black: #000000;
+
+    /*======================================================
+        TEXTOS
+    ======================================================*/
+
+    --text: #F8FAFC;
+    --text-dark: #0F172A;
+    --text-muted: #CBD5E1;
+
+    /*======================================================
+        GLASSMORPHISM
+    ======================================================*/
+
+    --glass-bg: rgba(255,255,255,.12);
+
+    --glass-bg-hover: rgba(255,255,255,.16);
+
+    --glass-border: rgba(255,255,255,.18);
+
+    --glass-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+
+    --overlay:
+        rgba(0,0,0,.45);
+
+    /*======================================================
+        BOTONES
+    ======================================================*/
+
+    --button-gradient:
+
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #3B82F6
+        );
+
+    --button-gradient-hover:
+
+        linear-gradient(
+            135deg,
+            #1D4ED8,
+            #2563EB
+        );
+
+    /*======================================================
+        INPUTS
+    ======================================================*/
+
+   --input-bg: transparent;
+   
+    --input-border:
+        rgba(255,255,255,.15);
+
+    --input-focus:
+        #60A5FA;
+
+    /*======================================================
+        SOMBRAS
+    ======================================================*/
+
+    --shadow-sm:
+
+        0 5px 12px rgba(0,0,0,.15);
+
+    --shadow-md:
+
+        0 12px 30px rgba(0,0,0,.22);
+
+    --shadow-lg:
+
+        0 20px 60px rgba(0,0,0,.35);
+
+    /*======================================================
+        RADIOS
+    ======================================================*/
+
+    --radius-sm:10px;
+
+    --radius-md:16px;
+
+    --radius-lg:24px;
+
+    --radius-xl:32px;
+
+    --radius-circle:50%;
+
+    /*======================================================
+        ESPACIADOS
+    ======================================================*/
+
+    --space-1:4px;
+
+    --space-2:8px;
+
+    --space-3:12px;
+
+    --space-4:16px;
+
+    --space-5:20px;
+
+    --space-6:24px;
+
+    --space-7:32px;
+
+    --space-8:40px;
+
+    --space-9:56px;
+
+    --space-10:72px;
+
+    /*======================================================
+        TRANSICIONES
+    ======================================================*/
+
+    --transition-fast:.20s ease;
+
+    --transition:.35s ease;
+
+    --transition-slow:.60s ease;
+
+    /*======================================================
+        BLUR
+    ======================================================*/
+
+    --blur:18px;
+
+    /*======================================================
+        MAX WIDTH
+    ======================================================*/
+
+    --container:1200px;
+
+}
+/*======================================================
+    RESET
+======================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+    background:#000;
+
+}
+/*======================================================
+    SCROLLBAR
+======================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3B82F6;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#2563EB;
+
+}
+::selection{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+input{
+
+    font-family:inherit;
+
+    outline:none;
+
+}

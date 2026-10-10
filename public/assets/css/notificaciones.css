@@ -1,0 +1,722 @@
+/* ==========================================================
+   BODYTECH — NOTIFICACIONES
+========================================================== */
+
+:root{
+
+    --notifications-bg:#0b1220;
+
+    --notifications-card:#151f32;
+
+    --notifications-card-soft:#1a263b;
+
+    --notifications-border:rgba(255,255,255,.08);
+
+    --notifications-primary:#3b82f6;
+
+    --notifications-primary-light:#60a5fa;
+
+    --notifications-text:#ffffff;
+
+    --notifications-text-soft:#cbd5e1;
+
+    --notifications-text-muted:#94a3b8;
+
+    --notifications-shadow:
+        0 25px 70px rgba(0,0,0,.42);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    margin:0;
+
+    background:var(--notifications-bg);
+
+    color:var(--notifications-text);
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================================================
+   PÁGINA
+========================================================== */
+
+.notifications-page{
+
+    min-height:100vh;
+
+    padding:
+        120px
+        25px
+        80px;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(59,130,246,.10),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(37,99,235,.08),
+            transparent 35%
+        ),
+
+        var(--notifications-bg);
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR
+========================================================== */
+
+.notifications-container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(21,31,50,.97),
+            rgba(14,24,40,.97)
+        );
+
+    border:1px solid var(--notifications-border);
+
+    box-shadow:var(--notifications-shadow);
+
+    animation:
+        notificationsAppear .6s ease;
+
+}
+
+
+@keyframes notificationsAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==========================================================
+   ENCABEZADO
+========================================================== */
+
+.notifications-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    padding-bottom:32px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+}
+
+
+.notifications-icon{
+
+    flex-shrink:0;
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    color:#fff;
+
+    font-size:1.7rem;
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(37,99,235,.30);
+
+}
+
+
+.notifications-label{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:var(--notifications-primary-light);
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+    letter-spacing:1.8px;
+
+}
+
+
+.notifications-header h1{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:2.25rem;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+}
+
+
+.notifications-header p{
+
+    margin:8px 0 0;
+
+    color:var(--notifications-text-muted);
+
+    font-size:.92rem;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================================
+   LISTA
+========================================================== */
+
+.notifications-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin-top:32px;
+
+}
+
+
+/* ==========================================================
+   TARJETA
+========================================================== */
+
+.notification-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding:23px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30,41,59,.80),
+            rgba(15,23,42,.80)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    transition:
+
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.notification-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #3b82f6,
+            #60a5fa
+        );
+
+}
+
+
+.notification-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(96,165,250,.25);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+
+}
+
+
+/* ==========================================================
+   ICONO DE NOTIFICACIÓN
+========================================================== */
+
+.notification-card-icon{
+
+    flex-shrink:0;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(37,99,235,.16);
+
+    color:#60a5fa;
+
+    font-size:1rem;
+
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.notification-content{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+.notification-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+
+.notification-top h2{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+}
+
+
+.notification-status{
+
+    flex-shrink:0;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:5px 9px;
+
+    border-radius:999px;
+
+    color:#93c5fd;
+
+    background:
+        rgba(37,99,235,.12);
+
+    border:
+        1px solid
+        rgba(96,165,250,.10);
+
+    font-size:.68rem;
+
+    font-weight:600;
+
+}
+
+
+.notification-status i{
+
+    font-size:.55rem;
+
+}
+
+
+/* ==========================================================
+   MENSAJE
+========================================================== */
+
+.notification-message{
+
+    margin:10px 0 15px;
+
+    color:var(--notifications-text-soft);
+
+    font-size:.9rem;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================================
+   FECHA
+========================================================== */
+
+.notification-date{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:var(--notifications-text-muted);
+
+    font-size:.75rem;
+
+}
+
+
+.notification-date i{
+
+    color:#60a5fa;
+
+}
+
+
+/* ==========================================================
+   ESTADO VACÍO
+========================================================== */
+
+.notifications-empty{
+
+    padding:
+        70px
+        25px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+        rgba(15,23,42,.55);
+
+    border:
+        1px dashed
+        rgba(255,255,255,.09);
+
+}
+
+
+.notifications-empty-icon{
+
+    width:75px;
+
+    height:75px;
+
+    margin:0 auto 20px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(37,99,235,.12);
+
+    color:#64748b;
+
+    font-size:1.8rem;
+
+}
+
+
+.notifications-empty h2{
+
+    margin-bottom:8px;
+
+    color:#fff;
+
+    font-size:1.2rem;
+
+}
+
+
+.notifications-empty p{
+
+    max-width:480px;
+
+    margin:0 auto;
+
+    color:var(--notifications-text-muted);
+
+    line-height:1.7;
+
+    font-size:.88rem;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:700px){
+
+    .notifications-page{
+
+        padding:
+            100px
+            14px
+            50px;
+
+    }
+
+
+    .notifications-container{
+
+        padding:25px 20px;
+
+        border-radius:22px;
+
+    }
+
+
+    .notifications-header{
+
+        align-items:flex-start;
+
+    }
+
+
+    .notifications-icon{
+
+        width:58px;
+
+        height:58px;
+
+        border-radius:17px;
+
+        font-size:1.4rem;
+
+    }
+
+
+    .notifications-header h1{
+
+        font-size:1.75rem;
+
+    }
+
+
+    .notifications-top{
+
+        align-items:flex-start;
+
+    }
+
+
+    .notification-top{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:8px;
+
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .notifications-header{
+
+        flex-direction:column;
+
+    }
+
+
+    .notifications-container{
+
+        padding:22px 15px;
+
+    }
+
+
+    .notification-card{
+
+        padding:18px;
+
+    }
+
+
+    .notification-card-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+
+    .notification-message{
+
+        font-size:.86rem;
+
+    }
+
+}
+.notification-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.notification-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.notification-card-link:hover .notification-card {
+    border-color: #3b82f6;
+    cursor: pointer;
+}
+.notification-status-new {
+    background: #22c55e;
+    color: white;
+}
+
+@keyframes notif-slide-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.notification-card-new {
+    animation: notif-slide-in 0.4s ease;
+}

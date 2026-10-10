@@ -1,0 +1,546 @@
+/*==========================================================
+    BODYTECH UI SYSTEM
+    Animaciones Globales
+==========================================================*/
+
+/*==========================================================
+    KEYFRAMES
+==========================================================*/
+
+/* Aparece suavemente */
+@keyframes fadeIn {
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* Aparece desde abajo */
+@keyframes fadeUp {
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* Aparece desde arriba */
+@keyframes fadeDown {
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* Aparece desde la izquierda */
+@keyframes fadeLeft {
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateX(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+/* Aparece desde la derecha */
+@keyframes fadeRight {
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+/* Zoom elegante */
+@keyframes zoomIn {
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Logo flotando */
+@keyframes floating {
+
+    0%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* Glow suave */
+@keyframes glow {
+
+    0%{
+
+        box-shadow:0 0 0 rgba(37,99,235,0);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 25px rgba(37,99,235,.45);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(37,99,235,0);
+
+    }
+
+}
+
+/* Shake para errores */
+@keyframes shake {
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    20%{
+
+        transform:translateX(-6px);
+
+    }
+
+    40%{
+
+        transform:translateX(6px);
+
+    }
+
+    60%{
+
+        transform:translateX(-4px);
+
+    }
+
+    80%{
+
+        transform:translateX(4px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/* Pulso muy suave */
+@keyframes pulse {
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.02);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+/*==========================================================
+    CLASES DE ANIMACIÓN
+==========================================================*/
+
+.fade-in{
+
+    animation:
+
+        fadeIn
+
+        .8s
+
+        ease
+
+        forwards;
+
+}
+
+.fade-up{
+
+    animation:
+
+        fadeUp
+
+        .8s
+
+        ease
+
+        forwards;
+
+}
+
+.fade-down{
+
+    animation:
+
+        fadeDown
+
+        .8s
+
+        ease
+
+        forwards;
+
+}
+
+.fade-left{
+
+    animation:
+
+        fadeLeft
+
+        .8s
+
+        ease
+
+        forwards;
+
+}
+
+.fade-right{
+
+    animation:
+
+        fadeRight
+
+        .8s
+
+        ease
+
+        forwards;
+
+}
+
+.zoom-in{
+
+    animation:
+
+        zoomIn
+
+        .7s
+
+        ease
+
+        forwards;
+
+}
+
+.float{
+
+    animation:
+
+        floating
+
+        5s
+
+        ease-in-out
+
+        infinite;
+
+}
+
+.glow{
+
+    animation:
+
+        glow
+
+        2.5s
+
+        infinite;
+
+}
+
+.pulse{
+
+    animation:
+
+        pulse
+
+        2s
+
+        infinite;
+
+}
+
+.shake{
+
+    animation:
+
+        shake
+
+        .45s;
+
+}
+/*==========================================================
+    HOVERS GLOBALES
+==========================================================*/
+
+.hover-lift{
+
+    transition:
+
+        var(--transition);
+
+}
+
+.hover-lift:hover{
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+.hover-grow{
+
+    transition:
+
+        var(--transition);
+
+}
+
+.hover-grow:hover{
+
+    transform:
+
+        scale(1.03);
+
+}
+
+.hover-rotate{
+
+    transition:
+
+        var(--transition);
+
+}
+
+.hover-rotate:hover{
+
+    transform:
+
+        rotate(-3deg);
+
+}
+/*==========================================================
+    TRANSICIONES
+==========================================================*/
+
+.transition{
+
+    transition:
+
+        var(--transition);
+
+}
+@media (prefers-reduced-motion: reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+@keyframes glassAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.96);
+
+        filter:blur(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+.glass-appear{
+
+    animation:
+        glassAppear
+        .8s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+}
+
+/*==========================================================
+    RIPPLE EFFECT
+==========================================================*/
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    background:rgba(255,255,255,.45);
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%) scale(0);
+
+    pointer-events:none;
+
+    animation:ripple .6s linear;
+
+}
+
+@keyframes ripple{
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            scale(22);
+
+        opacity:0;
+
+    }
+
+}

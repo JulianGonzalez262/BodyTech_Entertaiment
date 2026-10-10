@@ -1,0 +1,1008 @@
+/* ==========================================================
+   BODYTECH — SEGURIDAD
+   seguridad.css
+   ========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --security-bg:
+        #050b14;
+
+    --security-bg-soft:
+        #08111d;
+
+    --security-card:
+        rgba(10, 20, 34, 0.94);
+
+    --security-card-soft:
+        rgba(13, 26, 43, 0.90);
+
+    --security-border:
+        rgba(45, 126, 255, 0.20);
+
+    --security-border-strong:
+        rgba(45, 126, 255, 0.38);
+
+    --security-blue:
+        #2f80ff;
+
+    --security-blue-light:
+        #5da2ff;
+
+    --security-blue-dark:
+        #174ea6;
+
+    --security-text:
+        #f3f7ff;
+
+    --security-text-soft:
+        #aebbd0;
+
+    --security-text-muted:
+        #718199;
+
+    --security-success:
+        #32d583;
+
+    --security-warning:
+        #f5b942;
+
+    --security-danger:
+        #ff5d6c;
+
+    --security-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.48);
+
+    --security-shadow-blue:
+        0 14px 38px rgba(25, 103, 210, 0.18);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: var(--security-text);
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(0, 0, 0, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 0, 0, 0.1),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #030811 0%,
+            #07111e 48%,
+            #040a13 100%
+        );
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/*
+   Asegura que el fondo oscuro cubra TODO
+   aunque el contenido sea corto.
+*/
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.94)
+        );
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR PRINCIPAL
+========================================================== */
+
+.account-container {
+
+    width: min(
+        1120px,
+        calc(100% - 40px)
+    );
+
+    margin: 0 auto;
+
+    padding:
+        55px
+        0
+        80px;
+
+    animation:
+        securityPageEnter
+        0.75s
+        ease both;
+
+}
+
+
+@keyframes securityPageEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(24px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   CONTENIDO
+========================================================== */
+
+.account-content {
+
+    width: 100%;
+
+    padding: 42px;
+
+    border:
+        1px solid
+        var(--security-border);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 23, 39, 0.97),
+            rgba(6, 15, 27, 0.96)
+        );
+
+    box-shadow:
+        var(--security-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    animation:
+        securityContentEnter
+        0.85s
+        0.08s
+        ease both;
+
+}
+
+
+@keyframes securityContentEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.985);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==========================================================
+   TÍTULO PRINCIPAL
+========================================================== */
+
+.account-content > h1 {
+
+    margin:
+        0
+        0
+        34px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color:
+        var(--security-text);
+
+    font-size:
+        clamp(27px, 3vw, 36px);
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        -0.7px;
+
+}
+
+
+.account-content > h1::first-letter {
+
+    color:
+        var(--security-blue-light);
+
+}
+
+
+/* ==========================================================
+   SUBTÍTULOS
+========================================================== */
+
+.account-content h3 {
+
+    margin:
+        28px
+        0
+        10px;
+
+    color:
+        #e9f1ff;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.15px;
+
+}
+
+
+.account-content h3::first-letter {
+
+    color:
+        var(--security-blue-light);
+
+}
+
+
+/* ==========================================================
+   TEXTOS
+========================================================== */
+
+.account-content p {
+
+    margin:
+        8px
+        0;
+
+    color:
+        var(--security-text-soft);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.75;
+
+}
+
+
+.account-content small {
+
+    display: block;
+
+    margin-top:
+        15px;
+
+    color:
+        var(--security-text-muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* ==========================================================
+   CORREO
+========================================================== */
+
+.account-content > p {
+
+    padding:
+        18px
+        20px;
+
+    border:
+        1px solid
+        rgba(45, 126, 255, 0.14);
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(5, 15, 28, 0.72);
+
+}
+
+
+.account-content > p strong {
+
+    margin-left:
+        10px;
+
+    color:
+        var(--security-success);
+
+    font-weight:
+        700;
+
+}
+
+
+/* ==========================================================
+   SEPARADORES
+========================================================== */
+
+.account-content hr {
+
+    height: 1px;
+
+    margin:
+        34px
+        0;
+
+    border: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(45, 126, 255, 0.25),
+            transparent
+        );
+
+}
+
+
+/* ==========================================================
+   ESTADO DE VERIFICACIÓN
+========================================================== */
+
+.estado-verificacion {
+
+    position: relative;
+
+    margin:
+        20px
+        0;
+
+    padding:
+        27px
+        28px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--security-border);
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 28, 48, 0.92),
+            rgba(7, 17, 30, 0.94)
+        );
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.24);
+
+    animation:
+        verificationEnter
+        0.7s
+        ease both;
+
+}
+
+
+@keyframes verificationEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.estado-verificacion::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        var(--security-blue);
+
+}
+
+
+.estado-verificacion h4 {
+
+    margin:
+        0
+        0
+        12px;
+
+    color:
+        var(--security-text);
+
+    font-size:
+        18px;
+
+    font-weight:
+        750;
+
+}
+
+
+.estado-verificacion.aprobado {
+
+    border-color:
+        rgba(50, 213, 131, 0.25);
+
+}
+
+
+.estado-verificacion.aprobado::before {
+
+    background:
+        var(--security-success);
+
+}
+
+
+.estado-verificacion.aprobado h4 {
+
+    color:
+        var(--security-success);
+
+}
+
+
+.estado-verificacion.pendiente {
+
+    border-color:
+        rgba(245, 185, 66, 0.28);
+
+}
+
+
+.estado-verificacion.pendiente::before {
+
+    background:
+        var(--security-warning);
+
+}
+
+
+.estado-verificacion.pendiente h4 {
+
+    color:
+        var(--security-warning);
+
+}
+
+
+.estado-verificacion.rechazada {
+
+    border-color:
+        rgba(255, 93, 108, 0.28);
+
+}
+
+
+.estado-verificacion.rechazada::before {
+
+    background:
+        var(--security-danger);
+
+}
+
+
+.estado-verificacion.rechazada h4 {
+
+    color:
+        var(--security-danger);
+
+}
+
+
+/* ==========================================================
+   BOTONES / OPCIONES
+========================================================== */
+
+.account-option,
+.edit-profile-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height:
+        46px;
+
+    margin-top:
+        18px;
+
+    padding:
+        12px
+        20px;
+
+    border:
+        1px solid
+        rgba(45, 126, 255, 0.32);
+
+    border-radius:
+        11px;
+
+    color:
+        #f3f7ff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #174ea6,
+            #123c80
+        );
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.24);
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+
+}
+
+
+.account-option:hover,
+.edit-profile-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(93, 162, 255, 0.60);
+
+    background:
+        linear-gradient(
+            135deg,
+            #205dbd,
+            #174b99
+        );
+
+    box-shadow:
+        0 15px 32px
+        rgba(22, 88, 180, 0.28);
+
+}
+
+
+.account-option:active,
+.edit-profile-btn:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==========================================================
+   ZONA DE PELIGRO
+========================================================== */
+
+.account-content h2 {
+
+    margin:
+        38px
+        0
+        12px;
+
+    padding:
+        20px
+        22px;
+
+    border:
+        1px solid
+        rgba(255, 93, 108, 0.18);
+
+    border-radius:
+        15px;
+
+    color:
+        #ff7a86;
+
+    background:
+        rgba(75, 16, 25, 0.24);
+
+    font-size:
+        21px;
+
+    font-weight:
+        750;
+
+}
+
+
+.btn-danger {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top:
+        20px;
+
+    padding:
+        12px
+        22px;
+
+    border:
+        1px solid
+        rgba(255, 93, 108, 0.38);
+
+    border-radius:
+        11px;
+
+    color:
+        #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a92739,
+            #7d1d2d
+        );
+
+    box-shadow:
+        0 12px 28px
+        rgba(120, 20, 35, 0.25);
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        750;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
+
+}
+
+
+.btn-danger:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #c03347,
+            #972335
+        );
+
+    border-color:
+        rgba(255, 120, 135, 0.62);
+
+    box-shadow:
+        0 16px 35px
+        rgba(160, 28, 48, 0.32);
+
+}
+
+
+.btn-danger:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==========================================================
+   FOCUS / ACCESIBILIDAD
+========================================================== */
+
+a:focus-visible {
+
+    outline:
+        2px solid
+        var(--security-blue-light);
+
+    outline-offset:
+        4px;
+
+}
+
+
+button:focus-visible {
+
+    outline:
+        2px solid
+        var(--security-blue-light);
+
+    outline-offset:
+        4px;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLET
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .account-container {
+
+        width:
+            min(
+                100% - 28px,
+                720px
+            );
+
+        padding:
+            35px
+            0
+            60px;
+
+    }
+
+
+    .account-content {
+
+        padding:
+            30px;
+
+        border-radius:
+            20px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — MÓVIL
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .account-container {
+
+        width:
+            calc(100% - 20px);
+
+        padding:
+            25px
+            0
+            45px;
+
+    }
+
+
+    .account-content {
+
+        padding:
+            23px 18px;
+
+        border-radius:
+            17px;
+
+    }
+
+
+    .account-content > h1 {
+
+        font-size:
+            25px;
+
+        margin-bottom:
+            26px;
+
+    }
+
+
+    .account-content h3 {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .estado-verificacion {
+
+        padding:
+            22px 20px;
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .account-option,
+    .edit-profile-btn,
+    .btn-danger {
+
+        width: 100%;
+
+    }
+
+
+    .account-content hr {
+
+        margin:
+            28px
+            0;
+
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}

@@ -1,0 +1,396 @@
+
+:root {
+    --email2fa-bg: #020617;
+    --email2fa-card: rgba(15, 23, 42, 0.82);
+    --email2fa-blue: #2563eb;
+    --email2fa-blue-light: #60a5fa;
+    --email2fa-text: #f8fafc;
+    --email2fa-muted: #94a3b8;
+    --email2fa-border: rgba(148, 163, 184, 0.15);
+}
+
+.email2fa-page,
+.email2fa-page * {
+    box-sizing: border-box;
+}
+
+.email2fa-page {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 75vh;
+
+    padding: 65px 20px 80px;
+
+    overflow: hidden;
+
+    font-family: 'Poppins', sans-serif;
+    color: var(--email2fa-text);
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(37, 99, 235, 0.17),
+            transparent 36%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(59, 130, 246, 0.10),
+            transparent 32%
+        ),
+        #020617;
+}
+
+.email2fa-card {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 510px;
+
+    padding: 42px 40px 30px;
+
+    text-align: center;
+
+    background: var(--email2fa-card);
+
+    border: 1px solid var(--email2fa-border);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    animation: email2fa-appear 0.55s ease both;
+}
+
+.email2fa-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 82px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 25px;
+
+    color: #ffffff;
+    font-size: 31px;
+
+    background: linear-gradient(
+        145deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    box-shadow:
+        0 14px 35px rgba(37, 99, 235, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.email2fa-eyebrow {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--email2fa-blue-light);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.email2fa-card h1 {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+
+    font-size: clamp(23px, 4vw, 29px);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.6px;
+}
+
+.email2fa-description {
+    max-width: 390px;
+
+    margin: 0 auto 23px;
+
+    color: #aebdd0;
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.email2fa-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 27px;
+    padding: 14px 15px;
+
+    text-align: left;
+
+    background: rgba(37, 99, 235, 0.09);
+
+    border: 1px solid rgba(96, 165, 250, 0.15);
+    border-radius: 14px;
+}
+
+.email2fa-notice i {
+    flex-shrink: 0;
+
+    color: var(--email2fa-blue-light);
+    font-size: 18px;
+}
+
+.email2fa-notice span {
+    color: #cbd5e1;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.email2fa-card .profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    margin: 0;
+
+    text-align: left;
+}
+
+.email2fa-card .profile-form label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #e2e8f0;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.email2fa-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.email2fa-input-wrapper > i {
+    position: absolute;
+
+    top: 50%;
+    left: 17px;
+
+    transform: translateY(-50%);
+
+    color: var(--email2fa-blue-light);
+    font-size: 16px;
+
+    pointer-events: none;
+}
+
+.email2fa-card .profile-form input[name="codigo"] {
+    display: block;
+
+    width: 100%;
+    height: 64px;
+
+    margin: 0;
+    padding: 12px 18px 12px 48px;
+
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 15px;
+
+    outline: none;
+
+    background: rgba(2, 6, 23, 0.58);
+
+    color: #ffffff;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 10px;
+
+    caret-color: var(--email2fa-blue-light);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.email2fa-card .profile-form input[name="codigo"]::placeholder {
+    color: #475569;
+    opacity: 1;
+    letter-spacing: 7px;
+}
+
+.email2fa-card .profile-form input[name="codigo"]:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+}
+
+.email2fa-card .profile-form input[name="codigo"]:focus {
+    border-color: var(--email2fa-blue-light);
+
+    background: rgba(15, 23, 42, 0.9);
+
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.12),
+        0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+.email2fa-help {
+    display: block;
+
+    margin-top: 9px;
+
+    color: var(--email2fa-muted);
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.email2fa-card .profile-form button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    width: 100%;
+    min-height: 54px;
+
+    margin-top: 24px;
+    padding: 14px 18px;
+
+    border: 1px solid rgba(147, 197, 253, 0.25);
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color: #ffffff;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.email2fa-card .profile-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow: 0 16px 35px rgba(37, 99, 235, 0.32);
+}
+
+.email2fa-card .profile-form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.email2fa-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+
+    color: #8192a9;
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.email2fa-footer i {
+    color: var(--email2fa-blue-light);
+}
+
+@keyframes email2fa-appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .email2fa-page {
+        min-height: 70vh;
+        padding: 42px 16px 55px;
+    }
+
+    .email2fa-card {
+        padding: 32px 23px 25px;
+        border-radius: 23px;
+    }
+
+    .email2fa-icon {
+        width: 70px;
+        height: 70px;
+
+        margin-bottom: 19px;
+
+        border-radius: 21px;
+        font-size: 27px;
+    }
+
+    .email2fa-description {
+        font-size: 12px;
+    }
+
+    .email2fa-card .profile-form input[name="codigo"] {
+        height: 60px;
+        font-size: 23px;
+        letter-spacing: 8px;
+    }
+
+    .email2fa-card .profile-form button[type="submit"] {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .email2fa-card {
+        animation: none;
+    }
+
+    .email2fa-card *,
+    .email2fa-card *::before,
+    .email2fa-card *::after {
+        transition: none !important;
+    }
+}

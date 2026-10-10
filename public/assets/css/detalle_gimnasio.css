@@ -1,0 +1,2104 @@
+/* ==========================================================
+   BODYTECH — DETALLE GIMNASIO
+========================================================== */
+
+:root{
+
+    --gym-bg:#0b1220;
+    --gym-bg-soft:#111a2b;
+
+    --gym-card:#151f32;
+    --gym-card-soft:#1a263b;
+
+    --gym-border:rgba(255,255,255,.08);
+
+    --gym-primary:#3b82f6;
+    --gym-primary-light:#60a5fa;
+
+    --gym-text:#ffffff;
+    --gym-text-soft:#cbd5e1;
+    --gym-text-muted:#94a3b8;
+
+    --gym-star:#f59e0b;
+
+    --gym-radius:24px;
+
+    --gym-shadow:
+        0 25px 70px rgba(0,0,0,.42);
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    background:var(--gym-bg);
+
+    color:var(--gym-text);
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+/* ==========================================================
+   PÁGINA
+========================================================== */
+
+.gym-detail-page{
+
+    min-height:100vh;
+
+    padding:
+        120px
+        25px
+        80px;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(59,130,246,.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(37,99,235,.08),
+            transparent 35%
+        ),
+
+        var(--gym-bg);
+
+}
+
+
+/* ==========================================================
+   CONTENEDOR
+========================================================== */
+
+.gym-detail-container{
+
+    width:100%;
+
+    max-width:1380px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================================================
+   VOLVER
+========================================================== */
+
+.gym-back-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:28px;
+
+    color:var(--gym-text-muted);
+
+    text-decoration:none;
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.gym-back-link:hover{
+
+    color:#fff;
+
+    transform:translateX(-4px);
+
+}
+
+
+/* ==========================================================
+   LAYOUT PRINCIPAL
+========================================================== */
+
+.gym-product-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.15fr)
+        minmax(380px,.85fr);
+
+    gap:45px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(25,36,57,.96),
+            rgba(16,25,42,.96)
+        );
+
+    border:1px solid var(--gym-border);
+
+    box-shadow:var(--gym-shadow);
+
+}
+
+
+/* ==========================================================
+   GALERÍA
+========================================================== */
+
+.gym-gallery{
+
+    display:grid;
+
+    grid-template-columns:88px minmax(0,1fr);
+
+    gap:18px;
+
+    min-width:0;
+
+}
+
+
+/* ==========================================================
+   MINIATURAS
+========================================================== */
+
+.gym-thumbnails{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+.gym-thumbnail{
+
+    position:relative;
+
+    width:88px;
+
+    height:88px;
+
+    padding:0;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    border:2px solid transparent;
+
+    background:#101827;
+
+    cursor:pointer;
+
+    transition:
+
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.gym-thumbnail:hover{
+
+    transform:translateY(-2px);
+
+    border-color:rgba(96,165,250,.45);
+
+}
+
+
+.gym-thumbnail.active{
+
+    border-color:var(--gym-primary-light);
+
+    box-shadow:
+
+        0 0 0 3px rgba(59,130,246,.15);
+
+}
+
+
+.gym-thumbnail img,
+.gym-thumbnail video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* ==========================================================
+   VIDEO MINIATURA
+========================================================== */
+
+.gym-thumbnail-video{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.gym-thumbnail-video video{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+.gym-video-badge{
+
+    position:absolute;
+
+    z-index:2;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.68);
+
+    color:#fff;
+
+    backdrop-filter:blur(5px);
+
+    box-shadow:0 5px 18px rgba(0,0,0,.35);
+
+}
+
+
+.gym-video-badge i{
+
+    margin-left:2px;
+
+    font-size:.9rem;
+
+}
+
+
+/* ==========================================================
+   MEDIA PRINCIPAL
+========================================================== */
+
+.gym-main-media{
+    position:relative;
+    min-width:0;
+
+    width:100%;
+    aspect-ratio:1 / 1;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:#0b1220;
+
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.gym-media-item{
+
+    position:absolute;
+
+    inset:0;
+
+    display:none;
+
+}
+
+
+.gym-media-item.active{
+
+    display:block;
+
+}
+
+
+/* ==========================================================
+   IMAGEN PRINCIPAL — AJUSTE DEFINITIVO
+========================================================== */
+
+.gym-image-zoom{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+
+.gym-image-zoom img{
+
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    max-width:none;
+    max-height:none;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    margin:0;
+    padding:0;
+
+    transform:none !important;
+
+    transition:none !important;
+
+}
+
+
+/* TODAS las imágenes activas ocupan exactamente
+   todo el cuadro principal */
+
+.gym-media-item.active,
+.gym-media-item.active .gym-image-zoom{
+
+    width:100%;
+    height:100%;
+
+}
+
+
+/* Evita cualquier zoom */
+
+.gym-image-zoom:hover img{
+
+    transform:none !important;
+
+}
+
+
+/* ==========================================================
+   VIDEO PRINCIPAL
+========================================================== */
+
+.gym-media-item video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#000;
+
+    display:block;
+
+}
+
+
+/* ==========================================================
+   SIN MEDIA
+========================================================== */
+
+.gym-no-media{
+
+    min-height:500px;
+
+    border-radius:24px;
+
+    border:1px dashed rgba(255,255,255,.12);
+
+    background:rgba(15,23,42,.6);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    color:var(--gym-text-muted);
+
+}
+
+
+.gym-no-media i{
+
+    font-size:3rem;
+
+}
+
+
+/* ==========================================================
+   INFORMACIÓN
+========================================================== */
+
+.gym-product-info{
+
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:12px 8px;
+
+}
+
+
+/* ==========================================================
+   CATEGORÍA
+========================================================== */
+
+.gym-category{
+
+    align-self:flex-start;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 13px;
+
+    border-radius:999px;
+
+    color:#bfdbfe;
+
+    background:rgba(30,64,175,.25);
+
+    border:1px solid rgba(96,165,250,.16);
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+}
+
+
+/* ==========================================================
+   TÍTULO
+========================================================== */
+
+.gym-title{
+
+    margin:15px 0 8px;
+
+    color:#fff;
+
+    font-size:clamp(2rem,3.2vw,3.15rem);
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    overflow-wrap:anywhere;
+
+}
+
+
+/* ==========================================================
+   RATING
+========================================================== */
+
+.gym-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-bottom:27px;
+
+    color:var(--gym-text-muted);
+
+}
+
+
+.gym-stars{
+
+    display:flex;
+
+    gap:2px;
+
+    font-size:1.35rem;
+
+    letter-spacing:1px;
+
+}
+
+
+.star-filled{
+
+    color:var(--gym-star);
+
+}
+
+
+.star-empty{
+
+    color:#475569;
+
+}
+
+
+.gym-rating strong{
+
+    color:#fff;
+
+    font-size:1rem;
+
+}
+
+
+.gym-rating span:last-child{
+
+    color:var(--gym-text-muted);
+
+}
+
+
+/* ==========================================================
+   UBICACIÓN
+========================================================== */
+
+.gym-location-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
+    padding:18px;
+
+    margin-bottom:25px;
+
+    border-radius:18px;
+
+    background:
+
+        rgba(15,23,42,.62);
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+
+.gym-location-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+.gym-info-icon{
+
+    flex-shrink:0;
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#93c5fd;
+
+    background:rgba(37,99,235,.16);
+
+}
+
+
+.gym-location-item div:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+}
+
+
+.gym-location-item span{
+
+    color:var(--gym-text-muted);
+
+    font-size:.75rem;
+
+}
+
+
+.gym-location-item strong{
+
+    color:#fff;
+
+    font-size:.94rem;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+   BOTÓN AFILIACIÓN
+========================================================== */
+
+.gym-affiliate-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    min-height:58px;
+
+    padding:0 22px;
+
+    margin-bottom:30px;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    box-shadow:
+
+        0 15px 30px rgba(37,99,235,.28);
+
+    transition:
+
+        transform .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+
+}
+
+
+.gym-affiliate-button i:last-child{
+
+    margin-left:auto;
+
+}
+
+
+.gym-affiliate-button:hover{
+
+    transform:translateY(-3px);
+
+    filter:brightness(1.08);
+
+    box-shadow:
+
+        0 20px 40px rgba(37,99,235,.38);
+
+}
+
+
+/* ==========================================================
+   DESCRIPCIÓN
+========================================================== */
+
+.gym-description{
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.gym-section-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:13px;
+
+}
+
+
+.gym-section-heading i{
+
+    color:#60a5fa;
+
+}
+
+
+.gym-section-heading h2{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:1.15rem;
+
+}
+
+
+.gym-description p{
+
+    margin:0;
+
+    color:var(--gym-text-soft);
+
+    line-height:1.85;
+
+    font-size:.94rem;
+
+}
+
+
+/* ==========================================================
+   SECCIÓN RESEÑAS
+========================================================== */
+
+.gym-reviews-section{
+
+    margin-top:55px;
+
+    padding:38px;
+
+    border-radius:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(21,31,49,.97),
+            rgba(15,24,40,.97)
+        );
+
+    border:1px solid var(--gym-border);
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.30);
+
+}
+
+
+/* ==========================================================
+   HEADER RESEÑAS
+========================================================== */
+
+.gym-reviews-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding-bottom:30px;
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+}
+
+
+.gym-section-label{
+
+    color:#60a5fa;
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+    letter-spacing:1.8px;
+
+}
+
+
+.gym-reviews-header h2{
+
+    margin:6px 0 5px;
+
+    color:#fff;
+
+    font-size:2rem;
+
+}
+
+
+.gym-reviews-header p{
+
+    margin:0;
+
+    color:var(--gym-text-muted);
+
+}
+
+
+/* ==========================================================
+   RESUMEN DE RESEÑAS
+========================================================== */
+
+.gym-review-summary{
+
+    flex-shrink:0;
+
+    min-width:190px;
+
+    padding:18px 22px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(15,23,42,.65);
+
+    border:1px solid rgba(255,255,255,.07);
+
+}
+
+
+.gym-review-summary > strong{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:1.65rem;
+
+}
+
+
+.gym-review-summary .gym-stars{
+
+    justify-content:center;
+
+    margin:2px 0;
+
+    font-size:1rem;
+
+}
+
+
+.gym-review-summary > span{
+
+    color:var(--gym-text-muted);
+
+    font-size:.78rem;
+
+}
+
+
+/* ==========================================================
+   FORMULARIO RESEÑA
+========================================================== */
+
+.gym-review-form{
+
+    margin:30px 0;
+
+    padding:27px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30,41,59,.72),
+            rgba(15,23,42,.72)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+}
+
+
+.gym-review-form-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:25px;
+
+}
+
+
+.gym-form-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(37,99,235,.18);
+
+    color:#60a5fa;
+
+}
+
+
+.gym-review-form-header h3{
+
+    margin:0 0 3px;
+
+    color:#fff;
+
+    font-size:1.05rem;
+
+}
+
+
+.gym-review-form-header p{
+
+    margin:0;
+
+    color:var(--gym-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ==========================================================
+   SELECTOR ESTRELLAS
+========================================================== */
+
+.gym-rating-selector{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:20px;
+
+}
+
+
+.gym-rating-selector > span{
+
+    color:var(--gym-text-soft);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+}
+
+
+.gym-stars-input{
+
+    display:flex;
+
+    flex-direction:row-reverse;
+
+    justify-content:flex-end;
+
+    gap:2px;
+
+}
+
+
+.gym-stars-input input{
+
+    display:none;
+
+}
+
+
+.gym-stars-input label{
+
+    color:#475569;
+
+    font-size:2rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.gym-stars-input label:hover,
+.gym-stars-input label:hover ~ label,
+.gym-stars-input input:checked ~ label{
+
+    color:var(--gym-star);
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================================
+   TEXTAREA
+========================================================== */
+
+.gym-review-form textarea{
+
+    width:100%;
+
+    min-height:125px;
+
+    resize:vertical;
+
+    padding:15px 17px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    outline:none;
+
+    background:#0c1525;
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:.9rem;
+
+    line-height:1.6;
+
+    transition:.25s;
+
+}
+
+
+.gym-review-form textarea::placeholder{
+
+    color:#64748b;
+
+}
+
+
+.gym-review-form textarea:focus{
+
+    border-color:rgba(59,130,246,.65);
+
+    box-shadow:
+
+        0 0 0 3px rgba(59,130,246,.10);
+
+}
+
+
+/* ==========================================================
+   BOTÓN RESEÑA
+========================================================== */
+
+.gym-review-submit{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-top:14px;
+
+    padding:12px 20px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.gym-review-submit:hover{
+
+    background:#3b82f6;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ==========================================================
+   LISTA
+========================================================== */
+
+.gym-reviews-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+.gym-review-card{
+
+    padding:23px;
+
+    border-radius:20px;
+
+    background:
+
+        rgba(15,23,42,.68);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    transition:
+
+        transform .3s,
+        border-color .3s,
+        box-shadow .3s;
+
+}
+
+
+.gym-review-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:rgba(96,165,250,.22);
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.22);
+
+}
+
+
+/* ==========================================================
+   CABECERA RESEÑA
+========================================================== */
+
+.gym-review-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:15px;
+
+}
+
+
+.gym-review-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.gym-user-avatar{
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    color:#fff;
+
+}
+
+
+.gym-review-user div:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+}
+
+
+.gym-review-user strong{
+
+    color:#fff;
+
+    font-size:.94rem;
+
+}
+
+
+.gym-review-user small{
+
+    color:#64748b;
+
+    font-size:.74rem;
+
+}
+
+
+.gym-review-stars{
+
+    display:flex;
+
+    gap:2px;
+
+    font-size:1.05rem;
+
+}
+
+
+/* ==========================================================
+   COMENTARIO
+========================================================== */
+
+.gym-review-comment{
+
+    margin:0;
+
+    color:var(--gym-text-soft);
+
+    font-size:.91rem;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================================
+   SIN RESEÑAS
+========================================================== */
+
+.gym-empty-reviews{
+
+    padding:55px 20px;
+
+    text-align:center;
+
+    color:var(--gym-text-muted);
+
+}
+
+
+.gym-empty-reviews i{
+
+    margin-bottom:15px;
+
+    font-size:3rem;
+
+    color:#475569;
+
+}
+
+
+.gym-empty-reviews h3{
+
+    margin:0 0 7px;
+
+    color:#fff;
+
+}
+
+
+.gym-empty-reviews p{
+
+    margin:0;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1050px){
+
+    .gym-product-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gym-main-media{
+
+        aspect-ratio:16 / 10;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .gym-detail-page{
+
+        padding:
+            100px
+            14px
+            50px;
+
+    }
+
+
+    .gym-product-layout{
+
+        padding:20px;
+
+        border-radius:22px;
+
+    }
+
+
+    .gym-gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .gym-thumbnails{
+
+        order:2;
+
+        flex-direction:row;
+
+        overflow-x:auto;
+
+        padding-bottom:5px;
+
+    }
+
+
+    .gym-thumbnail{
+
+        flex:0 0 72px;
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+
+    .gym-main-media{
+
+        order:1;
+
+        aspect-ratio:1 / 1;
+
+        border-radius:18px;
+
+    }
+
+
+    .gym-title{
+
+        font-size:2rem;
+
+    }
+
+
+    .gym-reviews-section{
+
+        margin-top:30px;
+
+        padding:22px;
+
+        border-radius:22px;
+
+    }
+
+
+    .gym-reviews-header{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .gym-review-summary{
+
+        width:100%;
+
+    }
+
+
+    .gym-rating-selector{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+
+    .gym-review-top{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+}
+
+
+@media(max-width:480px){
+
+    .gym-detail-page{
+
+        padding-left:10px;
+
+        padding-right:10px;
+
+    }
+
+
+    .gym-product-layout{
+
+        padding:14px;
+
+    }
+
+
+    .gym-product-info{
+
+        padding:8px 3px;
+
+    }
+
+
+    .gym-title{
+
+        font-size:1.75rem;
+
+    }
+
+
+    .gym-affiliate-button{
+
+        font-size:.9rem;
+
+    }
+
+
+    .gym-reviews-header h2{
+
+        font-size:1.55rem;
+
+    }
+
+
+}
+/* ==========================================================
+   CORRECCIÓN GALERÍA — NO MODIFICA EL DISEÑO
+========================================================== */
+
+/* Todas las imágenes principales ocupan EXACTAMENTE
+   el mismo cuadro */
+.gym-main-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+/* Quitar completamente el zoom/recorte */
+.gym-image-zoom {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gym-image-zoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+    display: block;
+    transform: none !important;
+}
+
+/* IMPORTANTE:
+   eliminar el zoom que tenías */
+.gym-image-zoom:hover img {
+    transform: none !important;
+}
+
+
+/* ==========================================================
+   MINIATURAS
+========================================================== */
+
+.gym-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gym-thumbnail {
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   MEDIA PRINCIPAL
+========================================================== */
+
+.gym-media-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.gym-media-item.active {
+    display: block;
+}
+
+
+/* TODAS las imágenes principales exactamente
+   dentro del mismo cuadro */
+.gym-media-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+    display: block;
+}
+
+
+/* Videos mantienen exactamente el mismo cuadro */
+.gym-media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* ==========================================================
+   CORRECCIÓN FINAL — GALERÍA
+========================================================== */
+
+/* El cuadro principal SIEMPRE conserva exactamente su tamaño */
+.gym-main-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #0b1220;
+}
+
+/* Cada elemento ocupa TODO el cuadro */
+.gym-media-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gym-media-item.active {
+    display: block;
+}
+
+/* Contenedor de imagen ocupa TODO */
+.gym-image-zoom {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* LA IMAGEN llena exactamente el cuadro */
+.gym-image-zoom img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* ELIMINAR COMPLETAMENTE EL ZOOM */
+.gym-image-zoom:hover img {
+    transform: none !important;
+}
+
+/* El video también ocupa exactamente el mismo cuadro */
+.gym-media-item > video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+}
+
+/* ==========================================================
+   MINIATURAS
+========================================================== */
+
+.gym-thumbnails {
+    width: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gym-thumbnail {
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gym-thumbnail img,
+.gym-thumbnail video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ==========================================================
+   LIGHTBOX
+========================================================== */
+
+.gym-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(3, 8, 18, .94);
+    backdrop-filter: blur(10px);
+}
+
+.gym-lightbox.open {
+    display: flex;
+}
+
+.gym-lightbox-content {
+    position: relative;
+
+    width: min(1200px, 90vw);
+    height: min(800px, 88vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gym-lightbox-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55);
+}
+
+.gym-lightbox-close,
+.gym-lightbox-prev,
+.gym-lightbox-next {
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    background: rgba(15,23,42,.85);
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition: .2s;
+}
+
+.gym-lightbox-close:hover,
+.gym-lightbox-prev:hover,
+.gym-lightbox-next:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+.gym-lightbox-close {
+    top: -20px;
+    right: -20px;
+    font-size: 1.2rem;
+}
+
+.gym-lightbox-prev {
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gym-lightbox-next {
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gym-lightbox-prev:hover,
+.gym-lightbox-next:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .gym-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gym-thumbnails {
+        order: 2;
+
+        width: 100%;
+
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .gym-thumbnail {
+        flex: 0 0 72px;
+
+        width: 72px;
+        height: 72px;
+    }
+
+    .gym-main-media {
+        order: 1;
+        aspect-ratio: 1 / 1;
+    }
+
+    .gym-lightbox {
+        padding: 20px;
+    }
+
+    .gym-lightbox-content {
+        width: 95vw;
+        height: 85vh;
+    }
+
+    .gym-lightbox-prev {
+        left: 10px;
+    }
+
+    .gym-lightbox-next {
+        right: 10px;
+    }
+
+    .gym-lightbox-close {
+        top: 10px;
+        right: 10px;
+    }
+}
+/* ==========================================================
+   AJUSTE FINAL — GALERÍA PRINCIPAL
+   Quita el espacio sobrante y mantiene todas las imágenes
+   dentro del mismo marco visual.
+========================================================== */
+
+.gym-main-media {
+    aspect-ratio: 12 / 9;
+    height: auto;
+    min-height: 0;
+}
+
+.gym-media-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gym-image-zoom {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.gym-image-zoom img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: none;
+}
+
+.gym-image-zoom:hover img {
+    transform: none;
+}
+/* ==========================================================
+   ESTADO DE AFILIACIÓN
+========================================================== */
+
+.gym-affiliation-status {
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    width:100%;
+
+    margin-bottom:14px;
+
+    padding:16px 18px;
+
+    border-radius:14px;
+
+    font-size:.92rem;
+
+    line-height:1.5;
+
+    border:1px solid;
+
+}
+
+.gym-affiliation-status i {
+
+    margin-top:3px;
+
+    flex-shrink:0;
+
+}
+
+
+/* ==========================================================
+   YA AFILIADO A ESTA SEDE
+========================================================== */
+
+.gym-affiliation-current {
+
+    color:#86EFAC;
+
+    background:rgba(34,197,94,.10);
+
+    border-color:rgba(34,197,94,.25);
+
+}
+
+.gym-affiliation-current i {
+
+    color:#22C55E;
+
+}
+
+
+/* ==========================================================
+   AFILIADO A OTRA SEDE
+========================================================== */
+
+.gym-affiliation-warning {
+
+    color:#FCD34D;
+
+    background:rgba(245,158,11,.10);
+
+    border-color:rgba(245,158,11,.25);
+
+}
+
+.gym-affiliation-warning i {
+
+    color:#F59E0B;
+
+}
+
+
+/* ==========================================================
+   BOTÓN DESHABILITADO
+========================================================== */
+
+.gym-affiliate-disabled {
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    pointer-events:none;
+
+    filter:grayscale(.25);
+
+}
