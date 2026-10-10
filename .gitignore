@@ -1,7 +1,4 @@
 # Credenciales y configuraciones locales sensibles
-/app/config/database.php
-/app/config/pagos.php
-/node-server/config/database.js
 /app/auth/google_callback.php
 
 # Dependencias instaladas localmente
@@ -16,5 +13,5 @@
 *.log
 .DS_Store
 Thumbs.db
-/vendor/
+
 
