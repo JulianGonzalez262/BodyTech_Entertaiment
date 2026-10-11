@@ -2,5 +2,8 @@
     "require": {
         "robthree/twofactorauth": "^1.8",
         "phpoffice/phpspreadsheet": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6.33"
     }
 }
